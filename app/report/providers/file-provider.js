@@ -1,5 +1,4 @@
 System.register([], function(exports_1) {
-    "use strict";
     var FileProvider;
     return {
         setters:[],
@@ -13,7 +12,7 @@ System.register([], function(exports_1) {
                     return this.http.get(this.file).map(function (res) { return res.json(); });
                 };
                 return FileProvider;
-            }());
+            })();
             exports_1("FileProvider", FileProvider);
         }
     }

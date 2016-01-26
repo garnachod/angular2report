@@ -18,7 +18,8 @@ System.register([], function(exports_1) {
                 ;
                 ReportBlock.prototype.getRange = function () { return this.range; };
                 ;
-                ReportBlock.prototype.intjectProvider = function (provider) {
+                ReportBlock.prototype.injectProvider = function (provider) {
+                    this.provider = provider;
                 };
                 return ReportBlock;
             })();
