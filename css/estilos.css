@@ -1,0 +1,187 @@
+
+.navbar-default{
+	background: transparent;
+	border: 0;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: white;
+	font-size: 18px;
+	opacity: 0.9;
+}
+.navbar-default .navbar-nav>li>a:link {
+    text-decoration: none;
+    color:white;
+}
+
+.navbar-default .navbar-nav>li>a:visited {
+ 	color:white;
+    text-decoration: none;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color:white;
+    text-decoration: none;
+    background: grey;
+}
+
+.navbar-default .navbar-nav>li>a:active {
+    color:white;
+    text-decoration: none;
+}
+
+.logo {
+	margin: 10px;
+}
+
+header{
+	background: url(../imagenes/ciudad2.jpg) no-repeat center center scroll;
+    background-position: 100% 25%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+	min-height: 100vh;
+}
+
+.main{
+	background: #f2f2f2;
+}
+
+.jumbotron{
+	color: #fff;
+	opacity: 0.9;
+	background-color: transparent;
+	text-align: center;
+	justify-content:center;
+	align-items:center;
+	display:flex;
+	padding-top: 13%;
+
+}
+
+.info{
+	margin-top:50px;
+	margin-bottom: 50px;
+}
+
+.sectioninfo{
+	min-height: 100vh;
+}
+
+.info h3{
+	text-align: center;
+}
+
+.info p{
+	text-align: justify;
+	padding: 3%;
+}
+
+.info h1{
+	text-align: center;
+	color: #006699;
+}
+
+.contacto{
+	background-color: #E0E0E0;
+	min-height: 100vh;
+}
+
+#contactoTitulo{
+	background: url(../imagenes/desk.jpg) no-repeat center center scroll ;
+	background-position: 50% 90%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding: 7%;
+    font-size: 70px;
+}
+
+#contactoTitulo h3{
+	font-style: italic;
+	font-weight: bold;
+}
+#contactoTitulo h1{
+	font-weight: bold;
+}
+
+#formulario{
+	    text-align: center;
+	    justify-content:center;
+		align-items:center;
+		margin-top: 4%;
+}
+
+#formulario form{
+	padding: 4%;
+}
+#formulario button{
+	background-color: #006699;
+	color: white;
+}
+
+#emailFormIc{
+	display: none;
+}
+#nombreFormIc{
+	display: none;
+}
+#messageFormIc{
+	display: none;
+}
+
+.infoEnvio{
+	display: none;
+}
+.infoEnvio p{
+	text-align: left;
+}
+
+.infoEnvio span{
+	font-size: 20px;
+	text-align: center;
+}
+
+.infoEnvio2 p{
+	text-align: left;
+}
+
+.infoEnvio2 span{
+	font-size: 20px;
+	text-align: center;
+}
+
+footer{
+	background: #202020;
+}
+
+footer h4{
+	color: #006699;
+}
+
+#goHome{
+	position: fixed;
+	right: 2%;
+	bottom: 4%;
+	color: white;
+	opacity: 0.7;
+	background: #006699;
+	border-radius: 40px;
+}
+
+#goHome span{
+
+	padding: 10px;
+	margin: 0;
+	font-size: 200%;
+
+}
+
+#circulo{
+	display: none;
+}
