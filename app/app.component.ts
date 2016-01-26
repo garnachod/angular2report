@@ -8,7 +8,7 @@ import {OnInit} from 'angular2/core';
     template: `
 
         <report></report>
-    
+        
     `
 })
 export class AppComponent implements OnInit {
