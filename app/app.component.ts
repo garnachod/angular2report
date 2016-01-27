@@ -1,5 +1,4 @@
-import {Component} from  'angular2/core';
-import {OnInit} from 'angular2/core';
+import {Component,OnInit,ViewChild} from  'angular2/core';
 import {ReportComponent} from './report/report.component';
 
 @Component({
@@ -22,14 +21,20 @@ import {ReportComponent} from './report/report.component';
 
     `
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+
+    @ViewChild(ReportComponent) private reportComponent: ReportComponent;
 
     constructor() {
-
     }
 
-    ngOnInit() {
-
+    ngAfterViewInit () {
+        this.reportComponent.loadConfig({
+            'name': 'p_molins',
+            'range': ['', ''],
+            'language': 'es',
+            'components': ['user-stats', 'user-stats']
+        });
     }
 
 }

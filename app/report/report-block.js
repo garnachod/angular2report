@@ -19,6 +19,7 @@ System.register([], function(exports_1) {
                 ReportBlock.prototype.getRange = function () { return this.range; };
                 ;
                 ReportBlock.prototype.injectProvider = function (provider) {
+                    alert('Provider injected with ' + provider);
                     this.provider = provider;
                 };
                 return ReportBlock;

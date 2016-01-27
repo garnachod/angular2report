@@ -1,4 +1,5 @@
-System.register(['./../report-block', 'angular2/core'], function(exports_1) {
+System.register(['./report-block', 'angular2/core'], function(exports_1) {
+    "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -37,7 +38,7 @@ System.register(['./../report-block', 'angular2/core'], function(exports_1) {
                     __metadata('design:paramtypes', [])
                 ], UserStatsComponent);
                 return UserStatsComponent;
-            })(report_block_1.ReportBlock);
+            }(report_block_1.ReportBlock));
             exports_1("UserStatsComponent", UserStatsComponent);
         }
     }

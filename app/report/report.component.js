@@ -1,4 +1,5 @@
-System.register(['angular2/core', './report-block-factory', './report-block-provider-factory'], function(exports_1) {
+System.register(['angular2/core', './blocks/report-block-factory', './providers/report-block-provider-factory', './blocks/user-stats.component'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +9,7 @@ System.register(['angular2/core', './report-block-factory', './report-block-prov
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, report_block_factory_1, report_block_provider_factory_1;
+    var core_1, report_block_factory_1, report_block_provider_factory_1, user_stats_component_1;
     var ReportComponent;
     return {
         setters:[
@@ -20,6 +21,9 @@ System.register(['angular2/core', './report-block-factory', './report-block-prov
             },
             function (report_block_provider_factory_1_1) {
                 report_block_provider_factory_1 = report_block_provider_factory_1_1;
+            },
+            function (user_stats_component_1_1) {
+                user_stats_component_1 = user_stats_component_1_1;
             }],
         execute: function() {
             ReportComponent = (function () {
@@ -31,28 +35,27 @@ System.register(['angular2/core', './report-block-factory', './report-block-prov
                 }
                 ReportComponent.prototype.loadConfig = function (data) {
                     var _this = this;
-                    this.config = data;
-                    this.reportBlocks = this.rbf.getReportBlocks(this.config);
+                    this.rbf.loadConfig(data);
+                    this.reportBlocks = this.rbf.getReportBlocks();
                     this.reportBlocks.forEach(function (block) {
-                        _this.dcl.loadAsRoot(block, '#' + block.getName(), _this.injector)
+                        _this.dcl.loadAsRoot(block.directive, '#test', _this.injector)
                             .then(function (component) {
                             var provider = _this.rbpf.getProvider(block);
                             component.instance.injectProvider(provider);
                         });
                     });
                 };
-                ReportComponent.prototype.ngOnInit = function () {
-                };
                 ReportComponent = __decorate([
                     core_1.Component({
+                        directives: [user_stats_component_1.UserStatsComponent],
                         providers: [report_block_factory_1.ReportBlockFactory, report_block_provider_factory_1.ReportBlockProviderFactory],
                         selector: 'report',
-                        template: "\n    <div *ngFor=\"#block of reportBlocks\" id=\"{{ block.nombre }}\">\n    </div>\n    "
+                        template: "\n    <div id=\"test\">\n    </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, report_block_factory_1.ReportBlockFactory, report_block_provider_factory_1.ReportBlockProviderFactory])
                 ], ReportComponent);
                 return ReportComponent;
-            })();
+            }());
             exports_1("ReportComponent", ReportComponent);
         }
     }

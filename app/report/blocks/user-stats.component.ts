@@ -1,4 +1,4 @@
-import { ReportBlock } from './../report-block';
+import { ReportBlock } from './report-block';
 import { Component } from 'angular2/core';
 
 @Component({
@@ -8,5 +8,5 @@ import { Component } from 'angular2/core';
     `
 })
 export class UserStatsComponent extends ReportBlock {
-    
+
 }

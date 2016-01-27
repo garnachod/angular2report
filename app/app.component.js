@@ -1,4 +1,5 @@
 System.register(['angular2/core', './report/report.component'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,8 +23,18 @@ System.register(['angular2/core', './report/report.component'], function(exports
             AppComponent = (function () {
                 function AppComponent() {
                 }
-                AppComponent.prototype.ngOnInit = function () {
+                AppComponent.prototype.ngAfterViewInit = function () {
+                    this.reportComponent.loadConfig({
+                        'name': 'p_molins',
+                        'range': ['', ''],
+                        'language': 'es',
+                        'components': ['user-stats', 'user-stats']
+                    });
                 };
+                __decorate([
+                    core_1.ViewChild(report_component_1.ReportComponent), 
+                    __metadata('design:type', report_component_1.ReportComponent)
+                ], AppComponent.prototype, "reportComponent", void 0);
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'app',
@@ -34,7 +45,7 @@ System.register(['angular2/core', './report/report.component'], function(exports
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
-            })();
+            }());
             exports_1("AppComponent", AppComponent);
         }
     }
