@@ -20,6 +20,8 @@ System.register([], function(exports_1) {
                 ;
                 ReportBlock.prototype.getRange = function () { return this.range; };
                 ;
+                ReportBlock.prototype.getDirective = function () { return this.directive; };
+                ;
                 ReportBlock.prototype.setId = function (id) { return this.id = id; };
                 ;
                 ReportBlock.prototype.setName = function (name) { return this.name = name; };
@@ -28,8 +30,9 @@ System.register([], function(exports_1) {
                 ;
                 ReportBlock.prototype.setRange = function (range) { return this.range = range; };
                 ;
+                ReportBlock.prototype.setDirective = function (directive) { return this.directive; };
+                ;
                 ReportBlock.prototype.injectProvider = function (provider) {
-                    alert('Provider injected with ' + provider);
                     this.provider = provider;
                 };
                 return ReportBlock;

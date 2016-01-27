@@ -1,4 +1,4 @@
-import {ReportBlock} from './report-block';
+import {ReportBlock} from './../blocks/report-block';
 
 export class ReportBlockProviderFactory {
 

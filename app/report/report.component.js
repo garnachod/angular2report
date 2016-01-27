@@ -1,5 +1,4 @@
 System.register(['angular2/core', './blocks/report-block-factory', './providers/report-block-provider-factory', './blocks/user-stats.component'], function(exports_1) {
-    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,18 +26,20 @@ System.register(['angular2/core', './blocks/report-block-factory', './providers/
             }],
         execute: function() {
             ReportComponent = (function () {
-                function ReportComponent(dcl, injector, rbf, rbpf) {
-                    this.dcl = dcl;
+                function ReportComponent(loader, injector, elementRef, rbf, rbpf) {
+                    this.loader = loader;
                     this.injector = injector;
+                    this.elementRef = elementRef;
                     this.rbf = rbf;
                     this.rbpf = rbpf;
+                    this.reportBlocks = this.rbf.getReportBlocks(this.config);
                 }
-                ReportComponent.prototype.loadConfig = function (data) {
+                ReportComponent.prototype.ngAfterViewInit = function () {
                     var _this = this;
-                    this.rbf.loadConfig(data);
-                    this.reportBlocks = this.rbf.getReportBlocks();
-                    this.reportBlocks.forEach(function (block) {
-                        _this.dcl.loadAsRoot(block.directive, '#test', _this.injector)
+                    this.reportBlocks.map(function (block) {
+                        console.log('block');
+                        console.log(block);
+                        _this.loader.loadAsRoot(block.getDirective(), '#' + block.getId(), _this.injector)
                             .then(function (component) {
                             var provider = _this.rbpf.getProvider(block);
                             component.instance.injectProvider(provider);
@@ -50,12 +51,13 @@ System.register(['angular2/core', './blocks/report-block-factory', './providers/
                         directives: [user_stats_component_1.UserStatsComponent],
                         providers: [report_block_factory_1.ReportBlockFactory, report_block_provider_factory_1.ReportBlockProviderFactory],
                         selector: 'report',
-                        template: "\n    <div id=\"test\">\n    </div>\n    "
+                        template: "\n    <div *ngFor=\"#block of reportBlocks\" id=\"{{ block.getId() }}\">\n\n    </div>\n    ",
+                        inputs: ['config'],
                     }), 
-                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, report_block_factory_1.ReportBlockFactory, report_block_provider_factory_1.ReportBlockProviderFactory])
+                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, report_block_factory_1.ReportBlockFactory, report_block_provider_factory_1.ReportBlockProviderFactory])
                 ], ReportComponent);
                 return ReportComponent;
-            }());
+            })();
             exports_1("ReportComponent", ReportComponent);
         }
     }

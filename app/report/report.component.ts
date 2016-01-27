@@ -1,4 +1,6 @@
-import {Component, DynamicComponentLoader, Injector, Input, OnInit} from 'angular2/core';
+import {
+    Component, DynamicComponentLoader, Injector, Input, OnInit, ElementRef, Attribute
+} from 'angular2/core';
 import {ReportBlockFactory} from './blocks/report-block-factory';
 import {ReportBlockProviderFactory} from './providers/report-block-provider-factory';
 import { UserStatsComponent } from './blocks/user-stats.component';
@@ -8,32 +10,42 @@ import { UserStatsComponent } from './blocks/user-stats.component';
     providers: [ReportBlockFactory, ReportBlockProviderFactory],
     selector: 'report',
     template: `
-    <div id="test">
+    <div *ngFor="#block of reportBlocks" id="{{ block.getId() }}">
+
     </div>
-    `
+    `,
+    inputs: ['config'],
 })
 export class ReportComponent {
 
-    private reportBlocks: Array<any>;
+    public reportBlocks: Array<any>;
+    public config;
 
     constructor(
-        private dcl: DynamicComponentLoader,
+        private loader: DynamicComponentLoader,
         private injector: Injector,
+        private elementRef:ElementRef,
         private rbf: ReportBlockFactory,
         private rbpf: ReportBlockProviderFactory) {
+
+        this.reportBlocks = this.rbf.getReportBlocks(this.config);
+
     }
 
-    loadConfig(data) {
-        this.rbf.loadConfig(data)
+    ngAfterViewInit() {
 
-        this.reportBlocks = this.rbf.getReportBlocks();
-        this.reportBlocks.forEach(block => {
-            this.dcl.loadAsRoot(block.directive, '#test', this.injector)
+        this.reportBlocks.map(block => {
+            console.log('block');
+            console.log(block);
+            this.loader.loadAsRoot(block.getDirective(), '#' + block.getId(), this.injector)
                 .then(component => {
                     var provider = this.rbpf.getProvider(block);
                     component.instance.injectProvider(provider);
                 });
         });
+
     }
+
+
 
 }

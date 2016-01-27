@@ -16,14 +16,15 @@ export class ReportBlock {
     getName() { return this.name; };
     getLanguage() {return this.language; };
     getRange() {return this.range; };
+    getDirective() {return this.directive; };
 
     setId(id) { return this.id = id; };
     setName(name) { return this.name = name; };
     setLanguage(language) {return this.language = language; };
     setRange(range) {return this.range = range; };
+    setDirective(directive) { return this.directive; };
 
     injectProvider(provider: ReportBlockProvider) {
-        alert('Provider injected with ' + provider);
         this.provider = provider;
     }
 }

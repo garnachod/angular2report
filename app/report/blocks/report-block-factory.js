@@ -1,5 +1,4 @@
 System.register(['./user-stats.component', 'rxjs/Rx'], function(exports_1) {
-    "use strict";
     var user_stats_component_1;
     var ReportBlockFactory;
     return {
@@ -14,22 +13,17 @@ System.register(['./user-stats.component', 'rxjs/Rx'], function(exports_1) {
                     this.reportBlocksMap = new Map();
                     this.reportBlocks = new Array();
                 }
-                ReportBlockFactory.prototype.loadConfig = function (configData) {
-                    var _this = this;
-                    configData.components.forEach(function (component) {
-                        console.log('foreach ' + component);
-                        switch (component) {
-                            case 'user-stats':
-                                _this.reportBlocks.push(new user_stats_component_1.UserStatsComponent(user_stats_component_1.UserStatsComponent, 'id', 'name', 'es', ['a', 'b']));
-                                break;
-                        }
-                    });
-                };
-                ReportBlockFactory.prototype.getReportBlocks = function () {
-                    return this.reportBlocks;
+                ReportBlockFactory.prototype.getReportBlocks = function (configData) {
+                    return [
+                        new user_stats_component_1.UserStatsComponent(user_stats_component_1.UserStatsComponent, 'id1', 'p_molins', 'es', ['a', 'b']),
+                        new user_stats_component_1.UserStatsComponent(user_stats_component_1.UserStatsComponent, 'id2', 'p_molins', 'es', ['a', 'b']),
+                        new user_stats_component_1.UserStatsComponent(user_stats_component_1.UserStatsComponent, 'id3', 'p_molins', 'es', ['a', 'b']),
+                        new user_stats_component_1.UserStatsComponent(user_stats_component_1.UserStatsComponent, 'id4', 'p_molins', 'es', ['a', 'b']),
+                        new user_stats_component_1.UserStatsComponent(user_stats_component_1.UserStatsComponent, 'id5', 'p_molins', 'es', ['a', 'b']),
+                    ];
                 };
                 return ReportBlockFactory;
-            }());
+            })();
             exports_1("ReportBlockFactory", ReportBlockFactory);
         }
     }

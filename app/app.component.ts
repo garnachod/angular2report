@@ -4,7 +4,6 @@ import {ReportComponent} from './report/report.component';
 @Component({
     selector: 'app',
     directives: [ReportComponent],
-    providers: [],
     template: `
     <section class="container">
         <section id="informe">
@@ -13,7 +12,7 @@ import {ReportComponent} from './report/report.component';
             </header>
             <article id="graphs">
                 <section class="row">
-                    <report></report>
+                    <report [config]=reportConfig></report>
                 </section>
             </article>
         </section>
@@ -23,18 +22,11 @@ import {ReportComponent} from './report/report.component';
 })
 export class AppComponent {
 
-    @ViewChild(ReportComponent) private reportComponent: ReportComponent;
-
-    constructor() {
-    }
-
-    ngAfterViewInit () {
-        this.reportComponent.loadConfig({
-            'name': 'p_molins',
-            'range': ['', ''],
-            'language': 'es',
-            'components': ['user-stats', 'user-stats']
-        });
+    public reportConfig = {
+        'name': 'p_molins',
+        'range': ['', ''],
+        'language': 'es',
+        'components': ['user-stats', 'user-stats']
     }
 
 }
