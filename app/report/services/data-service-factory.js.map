@@ -1,0 +1,1 @@
+{"version":3,"file":"data-service-factory.js","sourceRoot":"","sources":["data-service-factory.ts"],"names":["DataServiceFactory","DataServiceFactory.constructor","DataServiceFactory.getService"],"mappings":";;;;;YAEA;gBAAAA;gBAKAC,CAACA;gBAHGD,uCAAUA,GAAVA,UAAWA,KAAYA;oBACnBE,MAAMA,CAAEA;gBACZA,CAACA;gBACLF,yBAACA;YAADA,CAACA,AALD,IAKC;YALD,mDAKC,CAAA"}

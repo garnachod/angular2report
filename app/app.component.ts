@@ -22,6 +22,7 @@ import {ReportComponent} from './report/report.component';
 })
 export class AppComponent {
 
+    // todo: sacar JSON principal de otro servicio
     public reportConfig = {
         'name': 'p_molins',
         'range': ['', ''],

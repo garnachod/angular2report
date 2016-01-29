@@ -21,6 +21,7 @@ System.register(['angular2/core', './report/report.component'], function(exports
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    // todo: sacar JSON principal de otro servicio
                     this.reportConfig = {
                         'name': 'p_molins',
                         'range': ['', ''],

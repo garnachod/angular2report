@@ -1,4 +1,5 @@
-System.register(['angular2/core', './blocks/report-block-factory', './providers/report-block-provider-factory', './blocks/user-stats.component'], function(exports_1) {
+System.register(['angular2/core', './blocks/block-factory', './services/data-service-factory', './blocks/user-stats.component'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,18 +9,18 @@ System.register(['angular2/core', './blocks/report-block-factory', './providers/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, report_block_factory_1, report_block_provider_factory_1, user_stats_component_1;
+    var core_1, block_factory_1, data_service_factory_1, user_stats_component_1;
     var ReportComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (report_block_factory_1_1) {
-                report_block_factory_1 = report_block_factory_1_1;
+            function (block_factory_1_1) {
+                block_factory_1 = block_factory_1_1;
             },
-            function (report_block_provider_factory_1_1) {
-                report_block_provider_factory_1 = report_block_provider_factory_1_1;
+            function (data_service_factory_1_1) {
+                data_service_factory_1 = data_service_factory_1_1;
             },
             function (user_stats_component_1_1) {
                 user_stats_component_1 = user_stats_component_1_1;
@@ -32,32 +33,31 @@ System.register(['angular2/core', './blocks/report-block-factory', './providers/
                     this.elementRef = elementRef;
                     this.rbf = rbf;
                     this.rbpf = rbpf;
-                    this.reportBlocks = this.rbf.getReportBlocks(this.config);
+                    this.blocks = this.rbf.getBlocks(this.config);
                 }
                 ReportComponent.prototype.ngAfterViewInit = function () {
                     var _this = this;
-                    this.reportBlocks.map(function (block) {
-                        console.log('block');
-                        console.log(block);
-                        _this.loader.loadAsRoot(block.getDirective(), '#' + block.getId(), _this.injector)
+                    this.blocks.map(function (block) {
+                        _this.loader.loadAsRoot(block.directive, '#' + block.id, _this.injector)
                             .then(function (component) {
-                            var provider = _this.rbpf.getProvider(block);
-                            component.instance.injectProvider(provider);
+                            component.instance.setService();
+                            //var service = this.rbpf.getProvider(block);
+                            // todo: inject data services via magic component.instance.injectService(service);
                         });
                     });
                 };
                 ReportComponent = __decorate([
                     core_1.Component({
                         directives: [user_stats_component_1.UserStatsComponent],
-                        providers: [report_block_factory_1.ReportBlockFactory, report_block_provider_factory_1.ReportBlockProviderFactory],
+                        providers: [block_factory_1.BlockFactory, data_service_factory_1.DataServiceFactory],
                         selector: 'report',
-                        template: "\n    <div *ngFor=\"#block of reportBlocks\" id=\"{{ block.getId() }}\">\n\n    </div>\n    ",
+                        template: "\n    <div *ngFor=\"#block of reportBlocks\" id=\"{{ block.id }}\">\n    </div>\n    ",
                         inputs: ['config'],
                     }), 
-                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, report_block_factory_1.ReportBlockFactory, report_block_provider_factory_1.ReportBlockProviderFactory])
+                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, block_factory_1.BlockFactory, data_service_factory_1.DataServiceFactory])
                 ], ReportComponent);
                 return ReportComponent;
-            })();
+            }());
             exports_1("ReportComponent", ReportComponent);
         }
     }

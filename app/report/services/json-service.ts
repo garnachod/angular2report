@@ -1,7 +1,9 @@
 import { Http } from 'angular2/http';
-import { ReportBlockProvider } from './report-block-provider';
+import { DataService } from './data-service';
+import { Injectable } from 'angular2/core';
 
-export class FileProvider implements ReportBlockProvider{
+@Injectable()
+export class JSONService implements DataService {
 
     constructor(private file: string, private http: Http) {
     }

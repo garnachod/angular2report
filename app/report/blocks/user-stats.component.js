@@ -1,4 +1,4 @@
-System.register(['./report-block', 'angular2/core'], function(exports_1) {
+System.register(["../services/file-service", './block', 'angular2/core'], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -13,12 +13,15 @@ System.register(['./report-block', 'angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var report_block_1, core_1;
+    var file_service_1, block_1, core_1;
     var UserStatsComponent;
     return {
         setters:[
-            function (report_block_1_1) {
-                report_block_1 = report_block_1_1;
+            function (file_service_1_1) {
+                file_service_1 = file_service_1_1;
+            },
+            function (block_1_1) {
+                block_1 = block_1_1;
             },
             function (core_1_1) {
                 core_1 = core_1_1;
@@ -29,15 +32,19 @@ System.register(['./report-block', 'angular2/core'], function(exports_1) {
                 function UserStatsComponent() {
                     _super.apply(this, arguments);
                 }
+                UserStatsComponent.prototype.loadData = function () {
+                    this.data = this.service.getData();
+                };
                 UserStatsComponent = __decorate([
                     core_1.Component({
+                        providers: [file_service_1.FileService],
                         selector: 'user-stats',
-                        template: "\n    Soy el componente user-start\n    "
+                        template: "\n    Soy el componente user-start. Me han inyectado datos: {{ data }}\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], UserStatsComponent);
                 return UserStatsComponent;
-            })(report_block_1.ReportBlock);
+            })(block_1.Block);
             exports_1("UserStatsComponent", UserStatsComponent);
         }
     }
