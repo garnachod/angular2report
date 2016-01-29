@@ -9,6 +9,7 @@ export class JSONService implements DataService {
     }
 
     getData(){
+        
         return this.http.get(this.file).map(res => res.json());
     }
 }

@@ -1,15 +1,15 @@
-import { FileService } from "../services/file-service";
+import { JSONService } from "../services/json-service";
 import { Block } from './block';
 import { Component, Inject, OnInit } from 'angular2/core';
 
 @Component({
-    providers: [FileService],
+    providers: [JSONService],
     selector: 'user-stats',
     template: `
     Soy el componente user-start. Me han inyectado datos: {{ data }}
     `
 })
-export class UserStatsComponent extends Block {
+export class UserStatsComponent  {
     public data : string;
 
     loadData() {

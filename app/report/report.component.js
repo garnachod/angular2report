@@ -33,16 +33,15 @@ System.register(['angular2/core', './blocks/block-factory', './services/data-ser
                     this.elementRef = elementRef;
                     this.rbf = rbf;
                     this.rbpf = rbpf;
-                    this.blocks = this.rbf.getBlocks(this.config);
                 }
+                ReportComponent.prototype.ngOnInit = function () {
+                    this.blocks = this.rbf.getBlocks(this.config);
+                };
                 ReportComponent.prototype.ngAfterViewInit = function () {
                     var _this = this;
                     this.blocks.map(function (block) {
                         _this.loader.loadAsRoot(block.directive, '#' + block.id, _this.injector)
                             .then(function (component) {
-                            component.instance.setService();
-                            //var service = this.rbpf.getProvider(block);
-                            // todo: inject data services via magic component.instance.injectService(service);
                         });
                     });
                 };
@@ -51,7 +50,7 @@ System.register(['angular2/core', './blocks/block-factory', './services/data-ser
                         directives: [user_stats_component_1.UserStatsComponent],
                         providers: [block_factory_1.BlockFactory, data_service_factory_1.DataServiceFactory],
                         selector: 'report',
-                        template: "\n    <div *ngFor=\"#block of reportBlocks\" id=\"{{ block.id }}\">\n    </div>\n    ",
+                        template: "\n    <div *ngFor=\"#block of blocks\" id=\"{{ block.id }}\">\n    </div>\n    ",
                         inputs: ['config'],
                     }), 
                     __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, block_factory_1.BlockFactory, data_service_factory_1.DataServiceFactory])

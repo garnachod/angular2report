@@ -1,7 +1,11 @@
-import {Component,OnInit,ViewChild} from  'angular2/core';
-import {ReportComponent} from './report/report.component';
+import {JSONService} from "./report/services/json-service";
+import { Component, OnInit, ViewChild, provide } from  'angular2/core';
+import { ReportComponent } from './report/report.component';
 
 @Component({
+    providers: [JSONService,
+        provide(String, {useValue: '/json/report.mock.json'})
+    ],
     selector: 'app',
     directives: [ReportComponent],
     template: `
@@ -21,13 +25,13 @@ import {ReportComponent} from './report/report.component';
     `
 })
 export class AppComponent {
+    public reportConfig : any;
 
-    // todo: sacar JSON principal de otro servicio
-    public reportConfig = {
-        'name': 'p_molins',
-        'range': ['', ''],
-        'language': 'es',
-        'components': ['user-stats', 'user-stats']
+    constructor(private service: JSONService) {
+        service.getData().subscribe(data => {
+            this.reportConfig = data;
+        });
     }
+
 
 }

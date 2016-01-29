@@ -1,0 +1,6 @@
+{
+    name: 'p_molins',
+    range: ['', ''],
+    language: 'es',
+    components: ['user-stats', 'user-stats']
+}

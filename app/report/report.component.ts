@@ -12,12 +12,12 @@ import { Block } from './blocks/block';
     providers: [BlockFactory, DataServiceFactory],
     selector: 'report',
     template: `
-    <div *ngFor="#block of reportBlocks" id="{{ block.id }}">
+    <div *ngFor="#block of blocks" id="{{ block.id }}">
     </div>
     `,
     inputs: ['config'],
 })
-export class ReportComponent {
+export class ReportComponent implements OnInit {
 
     public blocks: Array<Block>;
     public config;
@@ -28,6 +28,9 @@ export class ReportComponent {
         private elementRef:ElementRef,
         private rbf: BlockFactory,
         private rbpf: DataServiceFactory) {
+    }
+
+    ngOnInit() {
         this.blocks = this.rbf.getBlocks(this.config);
     }
 
@@ -35,9 +38,7 @@ export class ReportComponent {
         this.blocks.map(block => {
             this.loader.loadAsRoot(block.directive, '#' + block.id, this.injector)
                 .then(component => {
-                    component.instance.setService();
-                    //var service = this.rbpf.getProvider(block);
-                    // todo: inject data services via magic component.instance.injectService(service);
+
                 });
         });
 

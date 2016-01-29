@@ -1,9 +1,5 @@
-System.register(["../services/file-service", './block', 'angular2/core'], function(exports_1) {
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+System.register(["../services/json-service", 'angular2/core'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13,38 +9,33 @@ System.register(["../services/file-service", './block', 'angular2/core'], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var file_service_1, block_1, core_1;
+    var json_service_1, core_1;
     var UserStatsComponent;
     return {
         setters:[
-            function (file_service_1_1) {
-                file_service_1 = file_service_1_1;
-            },
-            function (block_1_1) {
-                block_1 = block_1_1;
+            function (json_service_1_1) {
+                json_service_1 = json_service_1_1;
             },
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            UserStatsComponent = (function (_super) {
-                __extends(UserStatsComponent, _super);
+            UserStatsComponent = (function () {
                 function UserStatsComponent() {
-                    _super.apply(this, arguments);
                 }
                 UserStatsComponent.prototype.loadData = function () {
                     this.data = this.service.getData();
                 };
                 UserStatsComponent = __decorate([
                     core_1.Component({
-                        providers: [file_service_1.FileService],
+                        providers: [json_service_1.JSONService],
                         selector: 'user-stats',
                         template: "\n    Soy el componente user-start. Me han inyectado datos: {{ data }}\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], UserStatsComponent);
                 return UserStatsComponent;
-            })(block_1.Block);
+            }());
             exports_1("UserStatsComponent", UserStatsComponent);
         }
     }
