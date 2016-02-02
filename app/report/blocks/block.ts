@@ -1,5 +1,3 @@
-import { DataService } from './../services/data-service';
-
 export class Block {
 
     constructor(
@@ -7,8 +5,7 @@ export class Block {
         public id: string,
         public name: string,
         public language: string,
-        public range: Array<string>,
-        public service: DataService) {
+        public interval: Array<string>) {
     }
 
 }

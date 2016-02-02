@@ -4,13 +4,12 @@ System.register([], function(exports_1) {
         setters:[],
         execute: function() {
             Block = (function () {
-                function Block(directive, id, name, language, range, service) {
+                function Block(directive, id, name, language, interval) {
                     this.directive = directive;
                     this.id = id;
                     this.name = name;
                     this.language = language;
-                    this.range = range;
-                    this.service = service;
+                    this.interval = interval;
                 }
                 return Block;
             })();

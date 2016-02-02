@@ -1,11 +1,9 @@
-import {JSONService} from "./report/services/json-service";
-import { Component, OnInit, ViewChild, provide } from  'angular2/core';
+import { JSONService } from "./report/services/json.service";
+import { Component, AfterViewInit } from  'angular2/core';
 import { ReportComponent } from './report/report.component';
 
 @Component({
-    providers: [JSONService,
-        provide(String, {useValue: '/json/report.mock.json'})
-    ],
+    providers: [JSONService],
     selector: 'app',
     directives: [ReportComponent],
     template: `
@@ -16,7 +14,7 @@ import { ReportComponent } from './report/report.component';
             </header>
             <article id="graphs">
                 <section class="row">
-                    <report [config]=reportConfig></report>
+                    <report *ngIf=reportConfig [config]=reportConfig></report>
                 </section>
             </article>
         </section>
@@ -24,14 +22,17 @@ import { ReportComponent } from './report/report.component';
 
     `
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+
     public reportConfig : any;
 
     constructor(private service: JSONService) {
-        service.getData().subscribe(data => {
+
+    }
+
+    ngAfterViewInit() {
+        this.service.getData('/json/report.mock.json').subscribe(data => {
             this.reportConfig = data;
         });
     }
-
-
 }

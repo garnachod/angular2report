@@ -1,5 +1,4 @@
 System.register(['./block', './user-stats.component', 'rxjs/Rx'], function(exports_1) {
-    "use strict";
     var block_1, user_stats_component_1;
     var BlockFactory;
     return {
@@ -20,24 +19,32 @@ System.register(['./block', './user-stats.component', 'rxjs/Rx'], function(expor
                 }
                 BlockFactory.prototype.getBlocks = function (configData) {
                     var _this = this;
-                    var name = configData.name;
-                    var language = configData.language;
-                    var range = configData.range;
-                    var service = null;
                     var blocks = new Array();
-                    var i = 0;
-                    // ver. seq. for unique ids
-                    if (!configData.components) {
-                        configData.components.forEach(function (component) {
-                            var id = component + i;
-                            blocks.push(new block_1.Block(_this.directivesMap[component], id, name, language, range, service));
-                            i++;
-                        });
+                    var name, language, range, service, i;
+                    if (configData) {
+                        name = configData.name;
+                        language = configData.language;
+                        range = configData.range;
+                        service = null;
+                        i = 0;
+                        // ver. seq. for unique ids
+                        if (configData.components) {
+                            configData.components.forEach(function (component) {
+                                var id = component + i;
+                                blocks.push(new block_1.Block(_this.directivesMap[component], id, name, language, range));
+                                i++;
+                            });
+                        }
                     }
+                    else {
+                        console.error('getBlocks didn\'t get config data');
+                    }
+                    console.log('Factory returning blocks:');
+                    console.log(blocks);
                     return blocks;
                 };
                 return BlockFactory;
-            }());
+            })();
             exports_1("BlockFactory", BlockFactory);
         }
     }

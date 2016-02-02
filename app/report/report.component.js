@@ -1,5 +1,4 @@
-System.register(['angular2/core', './blocks/block-factory', './services/data-service-factory', './blocks/user-stats.component'], function(exports_1) {
-    "use strict";
+System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,7 +8,7 @@ System.register(['angular2/core', './blocks/block-factory', './services/data-ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, block_factory_1, data_service_factory_1, user_stats_component_1;
+    var core_1, block_factory_1, user_stats_component_1;
     var ReportComponent;
     return {
         setters:[
@@ -19,44 +18,42 @@ System.register(['angular2/core', './blocks/block-factory', './services/data-ser
             function (block_factory_1_1) {
                 block_factory_1 = block_factory_1_1;
             },
-            function (data_service_factory_1_1) {
-                data_service_factory_1 = data_service_factory_1_1;
-            },
             function (user_stats_component_1_1) {
                 user_stats_component_1 = user_stats_component_1_1;
             }],
         execute: function() {
             ReportComponent = (function () {
-                function ReportComponent(loader, injector, elementRef, rbf, rbpf) {
+                function ReportComponent(loader, injector, elementRef, rbf) {
                     this.loader = loader;
                     this.injector = injector;
                     this.elementRef = elementRef;
                     this.rbf = rbf;
-                    this.rbpf = rbpf;
                 }
                 ReportComponent.prototype.ngOnInit = function () {
-                    this.blocks = this.rbf.getBlocks(this.config);
-                };
-                ReportComponent.prototype.ngAfterViewInit = function () {
                     var _this = this;
+                    if (!this.config) {
+                        console.error('ReportComponent didn\'t get config input data');
+                    }
+                    this.blocks = this.rbf.getBlocks(this.config);
                     this.blocks.map(function (block) {
                         _this.loader.loadAsRoot(block.directive, '#' + block.id, _this.injector)
                             .then(function (component) {
+                            // todo: pass data
                         });
                     });
                 };
                 ReportComponent = __decorate([
                     core_1.Component({
-                        directives: [user_stats_component_1.UserStatsComponent],
-                        providers: [block_factory_1.BlockFactory, data_service_factory_1.DataServiceFactory],
                         selector: 'report',
-                        template: "\n    <div *ngFor=\"#block of blocks\" id=\"{{ block.id }}\">\n    </div>\n    ",
                         inputs: ['config'],
+                        directives: [user_stats_component_1.UserStatsComponent],
+                        providers: [block_factory_1.BlockFactory],
+                        template: "\n    <div *ngFor=\"#block of blocks\" id=\"{{ block.id }}\">\n    </div>\n    "
                     }), 
-                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, block_factory_1.BlockFactory, data_service_factory_1.DataServiceFactory])
+                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, block_factory_1.BlockFactory])
                 ], ReportComponent);
                 return ReportComponent;
-            }());
+            })();
             exports_1("ReportComponent", ReportComponent);
         }
     }

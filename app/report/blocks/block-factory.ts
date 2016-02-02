@@ -1,6 +1,5 @@
 import { Block } from './block';
 import { UserStatsComponent } from './user-stats.component';
-import { JSONService } from '../services/json-service';
 import 'rxjs/Rx';
 
 export class BlockFactory {
@@ -10,27 +9,33 @@ export class BlockFactory {
 
     constructor() {
         this.directivesMap['user-stats'] = UserStatsComponent;
+
     }
 
     getBlocks(configData: any) {
 
-        var name = configData.name;
-        var language = configData.language;
-        var range = configData.range;
-        var service = null;
         var blocks : Array<Block> = new Array<Block>();
-        var i = 0;
+        var name, language, range, service, i;
 
-        // ver. seq. for unique ids
-        if (!configData.components) {
-
-            configData.components.forEach((component) => {
-                var id = component + i;
-                blocks.push(new Block(this.directivesMap[component],id,name,language,range,service));
-                i++;
-            });
+        if (configData){
+            name = configData.name;
+            language = configData.language;
+            range = configData.range;
+            service = null;
+            i = 0;
+            // ver. seq. for unique ids
+            if (configData.components) {
+                configData.components.forEach((component) => {
+                    var id = component + i;
+                    blocks.push(new Block(this.directivesMap[component],id,name,language,range));
+                    i++;
+                });
+            }
+        } else {
+            console.error('getBlocks didn\'t get config data')
         }
-
+        console.log('Factory returning blocks:');
+        console.log(blocks);
         return blocks;
     }
 

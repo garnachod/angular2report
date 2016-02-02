@@ -1,5 +1,4 @@
-System.register(["./report/services/json-service", 'angular2/core', './report/report.component'], function(exports_1) {
-    "use strict";
+System.register(["./report/services/json.service", 'angular2/core', './report/report.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25,25 +24,25 @@ System.register(["./report/services/json-service", 'angular2/core', './report/re
         execute: function() {
             AppComponent = (function () {
                 function AppComponent(service) {
-                    var _this = this;
                     this.service = service;
-                    service.getData().subscribe(function (data) {
+                }
+                AppComponent.prototype.ngAfterViewInit = function () {
+                    var _this = this;
+                    this.service.getData('/json/report.mock.json').subscribe(function (data) {
                         _this.reportConfig = data;
                     });
-                }
+                };
                 AppComponent = __decorate([
                     core_1.Component({
-                        providers: [json_service_1.JSONService,
-                            core_1.provide(String, { useValue: '/json/report.mock.json' })
-                        ],
+                        providers: [json_service_1.JSONService],
                         selector: 'app',
                         directives: [report_component_1.ReportComponent],
-                        template: "\n    <section class=\"container\">\n        <section id=\"informe\">\n            <header class=\"row\">\n                <img id=\"logo-horizontal\" src=\"img/logo-horizontal.png\" class=\"img-responsive col-md-4\"/>\n            </header>\n            <article id=\"graphs\">\n                <section class=\"row\">\n                    <report [config]=reportConfig></report>\n                </section>\n            </article>\n        </section>\n    </section>\n\n    "
+                        template: "\n    <section class=\"container\">\n        <section id=\"informe\">\n            <header class=\"row\">\n                <img id=\"logo-horizontal\" src=\"img/logo-horizontal.png\" class=\"img-responsive col-md-4\"/>\n            </header>\n            <article id=\"graphs\">\n                <section class=\"row\">\n                    <report *ngIf=reportConfig [config]=reportConfig></report>\n                </section>\n            </article>\n        </section>\n    </section>\n\n    "
                     }), 
                     __metadata('design:paramtypes', [json_service_1.JSONService])
                 ], AppComponent);
                 return AppComponent;
-            }());
+            })();
             exports_1("AppComponent", AppComponent);
         }
     }
