@@ -1,4 +1,4 @@
-import { OnInit, Component, DynamicComponentLoader, Injector, Input, AfterViewInit, ElementRef} from 'angular2/core';
+import { provide, OnInit, Component, DynamicComponentLoader, Injector, Input, AfterViewInit, ElementRef} from 'angular2/core';
 import { BlockFactory } from './blocks/block-factory';
 import { UserStatsComponent } from './blocks/user-stats.component';
 import { JSONService } from './services/json.service';
@@ -7,7 +7,6 @@ import { Block } from './blocks/block';
 @Component({
     selector: 'report',
     inputs: ['config'],
-    directives: [UserStatsComponent],
     providers: [BlockFactory],
     template: `
     <div *ngFor="#block of blocks" id="{{ block.id }}">
@@ -22,7 +21,7 @@ export class ReportComponent implements OnInit {
     constructor(
         private loader: DynamicComponentLoader,
         private injector: Injector,
-        private elementRef:ElementRef,
+        public elementRef:ElementRef,
         private rbf: BlockFactory) {
     }
 
@@ -35,12 +34,11 @@ export class ReportComponent implements OnInit {
         this.blocks = this.rbf.getBlocks(this.config);
 
         this.blocks.map(block => {
-            this.loader.loadAsRoot(block.directive, '#' + block.id, this.injector)
-                .then(component => {
-                    // todo: pass data
+            this.loader.loadNextToLocation(UserStatsComponent, this.elementRef)
+                .then(component =>  {
+                    component.instance.setData('PROBANDO');
                 });
         });
-
     }
 
 }

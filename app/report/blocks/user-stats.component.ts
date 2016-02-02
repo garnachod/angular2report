@@ -1,15 +1,26 @@
 import { JSONService } from "../services/json.service";
 import { Block } from './block';
-import { Component, Inject, OnInit, provide } from 'angular2/core';
+import { Injector, DynamicComponentLoader,  Component, Inject, OnInit, provide, forwardRef } from 'angular2/core';
+import { ReportComponent } from '../report.component';
+
+declare var $:any;
+const NUM_USERS = 15;
 
 @Component({
     selector: 'user-stats',
     template: `
-        Soy el componente user-start. Me han inyectado datos
+        <div *ngIf="data">
+            Soy el componente user-start. Me han inyectado datos {{ data }}
+        </div>
+        Hola holita.
     `
 })
-export class UserStatsComponent  {
+export class UserStatsComponent {
 
-    data =  "test";
+    public data: any;
+
+    public setData(data) {
+        this.data = data;
+    }
 
 }

@@ -36,9 +36,9 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
                     }
                     this.blocks = this.rbf.getBlocks(this.config);
                     this.blocks.map(function (block) {
-                        _this.loader.loadAsRoot(block.directive, '#' + block.id, _this.injector)
+                        _this.loader.loadNextToLocation(user_stats_component_1.UserStatsComponent, _this.elementRef)
                             .then(function (component) {
-                            // todo: pass data
+                            component.instance.setData('PROBANDO');
                         });
                     });
                 };
@@ -46,7 +46,6 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
                     core_1.Component({
                         selector: 'report',
                         inputs: ['config'],
-                        directives: [user_stats_component_1.UserStatsComponent],
                         providers: [block_factory_1.BlockFactory],
                         template: "\n    <div *ngFor=\"#block of blocks\" id=\"{{ block.id }}\">\n    </div>\n    "
                     }), 

@@ -9,21 +9,19 @@ export class BlockFactory {
 
     constructor() {
         this.directivesMap['user-stats'] = UserStatsComponent;
-
+        //TODO: add more directives...
     }
 
     getBlocks(configData: any) {
 
         var blocks : Array<Block> = new Array<Block>();
-        var name, language, range, service, i;
 
         if (configData){
-            name = configData.name;
-            language = configData.language;
-            range = configData.range;
-            service = null;
-            i = 0;
-            // ver. seq. for unique ids
+            let name = configData.name;
+            let language = configData.language;
+            let range = configData.range;
+            let service = null;
+            let i = 0;
             if (configData.components) {
                 configData.components.forEach((component) => {
                     var id = component + i;
@@ -32,10 +30,9 @@ export class BlockFactory {
                 });
             }
         } else {
-            console.error('getBlocks didn\'t get config data')
+            console.error('BlockFactory didn\'t get config data')
         }
-        console.log('Factory returning blocks:');
-        console.log(blocks);
+        
         return blocks;
     }
 
