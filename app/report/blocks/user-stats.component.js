@@ -1,5 +1,4 @@
 System.register(['angular2/core'], function(exports_1) {
-    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,12 +26,12 @@ System.register(['angular2/core'], function(exports_1) {
                 UserStatsComponent = __decorate([
                     core_1.Component({
                         selector: 'user-stats',
-                        template: "\n        <div *ngIf=\"data\">\n            Soy el componente user-start. Me han inyectado datos {{ data }}\n        </div>\n        Hola holita.\n    "
+                        template: "\n    <section class=\"col-md-6\">\n    <div class=\"panel with-nav-tabs panel-default\">\n        <ul id=\"statTabs\" class=\"nav nav-tabs\">\n            <li class=\"active\"><a href=\"#tab1\" data-toggle=\"tab\">Tweets</a></li>\n            <li><a href=\"#tab2\" data-toggle=\"tab\">Retweets</a></li>\n            <li><a href=\"#tab3\" data-toggle=\"tab\">Relevancia</a></li>\n            <li><a href=\"#tab4\" data-toggle=\"tab\">Intermediaci\u00F3n</a></li>\n        </ul>\n        <div class=\"panel-body\">\n            <div class=\"tab-content row\">\n                <div class=\"tab-pane fade in active col-md-12\" id=\"tab1\">\n                    <div id=\"tweetsStatsChart\"></div>\n                </div>\n                <div class=\"tab-pane fade col-md-12\" id=\"tab2\">\n                    <div id=\"retweetsStatsChart\"></div>\n                </div>\n                <div class=\"tab-pane fade col-md-12\" id=\"tab3\">\n                    <div id=\"pagerankStatsChart\"></div>\n                </div>\n                <div class=\"tab-pane fade col-md-12\" id=\"tab4\">\n                    <div id=\"closenessStatsChart\"></div>\n                </div>\n            </div>\n        </div>\n\n        <p class=\"col-md-12 text-center\">\n            <a class=\"como-funciona\"\n            data-toggle=\"popover\"\n            data-content=\"Al pinchar en la pesta\u00F1a de cada m\u00E9trica\n            aparecen los 10 usuarios m\u00E1s valorados seg\u00FAn \u00E9sta. La\n            longitud de la barra representa el valor de la m\u00E9trica\n            en dicho usuario. Puedes acceder a cada uno de estos\n            perfiles pinchando sobre su nombre.\"\n            data-placement=\"bottom\"\n            data-original-title=\"M\u00E9tricas de Usuarios\"\n            href=\"javascript:void(0);\">\n                <span>M\u00E9tricas de Usuarios</span>\n                <small><i class=\"glyphicon glyphicon-info-sign\"></i></small>\n            </a>\n        </p>\n    </div>\n</section>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], UserStatsComponent);
                 return UserStatsComponent;
-            }());
+            })();
             exports_1("UserStatsComponent", UserStatsComponent);
         }
     }
