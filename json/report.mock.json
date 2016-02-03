@@ -2,5 +2,5 @@
     "name": "p_molins",
     "range": ["", ""],
     "language": "es",
-    "components": ["user-stats"]
+    "components": ["user-stats", "community-network"]
 }

@@ -1,4 +1,5 @@
-System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats.component', './services/block-data.service'], function(exports_1) {
+System.register(['angular2/core', './blocks/block-factory', './services/block-data.service'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +9,7 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, block_factory_1, user_stats_component_1, block_data_service_1;
+    var core_1, block_factory_1, block_data_service_1;
     var ReportComponent;
     return {
         setters:[
@@ -17,9 +18,6 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
             },
             function (block_factory_1_1) {
                 block_factory_1 = block_factory_1_1;
-            },
-            function (user_stats_component_1_1) {
-                user_stats_component_1 = user_stats_component_1_1;
             },
             function (block_data_service_1_1) {
                 block_data_service_1 = block_data_service_1_1;
@@ -40,7 +38,7 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
                     }
                     this.blocks = this.factory.getBlocks(this.config);
                     this.blocks.map(function (block) {
-                        _this.loader.loadNextToLocation(user_stats_component_1.UserStatsComponent, _this.elementRef)
+                        _this.loader.loadNextToLocation(block.directive, _this.elementRef)
                             .then(function (component) {
                             if (_this.blockData.getData) {
                                 try {
@@ -65,7 +63,7 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
                     __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, block_factory_1.BlockFactory, block_data_service_1.BlockData])
                 ], ReportComponent);
                 return ReportComponent;
-            })();
+            }());
             exports_1("ReportComponent", ReportComponent);
         }
     }

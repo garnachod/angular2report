@@ -35,7 +35,7 @@ export class ReportComponent implements OnInit {
             this.blocks = this.factory.getBlocks(this.config);
 
             this.blocks.map(block => {
-                this.loader.loadNextToLocation(UserStatsComponent, this.elementRef)
+                this.loader.loadNextToLocation(block.directive, this.elementRef)
                 .then(component =>  {
                     if (this.blockData.getData) {
                         try {
