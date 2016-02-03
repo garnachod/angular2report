@@ -10,7 +10,7 @@ import { BlockData } from './services/block-data.service';
     inputs: ['config'],
     providers: [BlockFactory, BlockData],
     template: `
-
+    
     `
 })
 export class ReportComponent implements OnInit {

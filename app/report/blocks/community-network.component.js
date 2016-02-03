@@ -20,12 +20,21 @@ System.register(['angular2/core'], function(exports_1) {
             CommunityNetworkComponent = (function () {
                 function CommunityNetworkComponent() {
                     $('.como-funciona').popover();
-                    //$('grafo-clusters').
                 }
+                CommunityNetworkComponent.prototype.ngAfterViewInit = function () {
+                    $('#grafoClusters').loupe({
+                        width: 200,
+                        height: 200,
+                        loupe: 'lupa'
+                    });
+                };
+                CommunityNetworkComponent.prototype.setData = function (data) {
+                    this.src = data;
+                };
                 CommunityNetworkComponent = __decorate([
                     core_1.Component({
                         selector: 'community-network',
-                        template: "\n    <section class=\"col-md-6\">\n        <div class=\"panel panel-default\">\n            <img id=\"grafoClusters\" class=\"img-responsive\" src=\"\"/>\n            <p class=\"col-md-12 text-center\">\n                <a class=\"como-funciona\"\n                        data-toggle=\"popover\"\n                        data-content=\"El grafo de comunidades es similar al grafo de actividad\n                                  salvo porque a cada subcomunidad le ha sido asignado un color. Llamamos\n                                  subcomunidad a un conjunto de cuentas m\u00E1s relacionada entre s\u00ED de lo habitual.\"\n                                  data-placement=\"bottom\"\n                                  data-original-title=\"Red de Comunidades\"\n                                  href=\"javascript:void(0);\">\n                                  <span>Red de Comunidades</span>\n                                  <small><i class=\"glyphicon glyphicon-info-sign\"></i></small>\n                </a>\n            </p>\n        </div>\n    </section>\n    "
+                        template: "\n    <section class=\"col-md-6\">\n        <div class=\"panel panel-default\">\n            <img id=\"grafoClusters\" class=\"img-responsive\" src=\"{{ src }}\"/>\n            <p class=\"col-md-12 text-center\">\n                <a class=\"como-funciona\"\n                        data-toggle=\"popover\"\n                        data-content=\"El grafo de comunidades es similar al grafo de actividad\n                                  salvo porque a cada subcomunidad le ha sido asignado un color. Llamamos\n                                  subcomunidad a un conjunto de cuentas m\u00E1s relacionada entre s\u00ED de lo habitual.\"\n                                  data-placement=\"bottom\"\n                                  data-original-title=\"Red de Comunidades\"\n                                  href=\"javascript:void(0);\">\n                                  <span>Red de Comunidades</span>\n                                  <small><i class=\"glyphicon glyphicon-info-sign\"></i></small>\n                </a>\n            </p>\n        </div>\n    </section>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], CommunityNetworkComponent);

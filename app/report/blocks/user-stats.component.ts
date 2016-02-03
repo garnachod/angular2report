@@ -1,5 +1,6 @@
 import { JSONService } from "../services/json.service";
 import { Block } from './block';
+import { DataComponent } from './data-component';
 import { Component } from 'angular2/core';
 
 declare var $:any;
@@ -52,7 +53,7 @@ const NUM_USERS = 15;
     </section>
     `
 })
-export class UserStatsComponent {
+export class UserStatsComponent extends DataComponent {
 
     private colors: any;
     private elementoTweets: string;
@@ -65,9 +66,8 @@ export class UserStatsComponent {
     private valoresPagerank = [];
     private valoresCloseness = [];
 
-    public data: any;
-
     constructor() {
+        super();
         this.elementoTweets = $('#tweetsId');
         this.elementoRetweets = $('#retweetsId');
         this.elementoPagerank = $('#pagerankId');

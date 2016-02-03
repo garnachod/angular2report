@@ -11,7 +11,7 @@ System.register(['./json.service', 'angular2/core', 'rxjs/Rx'], function(exports
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var json_service_1, core_1;
+    var json_service_1, core_1, Rx_1;
     var BlockData;
     return {
         setters:[
@@ -21,7 +21,9 @@ System.register(['./json.service', 'angular2/core', 'rxjs/Rx'], function(exports
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (_1) {}],
+            function (Rx_1_1) {
+                Rx_1 = Rx_1_1;
+            }],
         execute: function() {
             BlockData = (function () {
                 function BlockData(service) {
@@ -30,9 +32,18 @@ System.register(['./json.service', 'angular2/core', 'rxjs/Rx'], function(exports
                 BlockData.prototype.getData = function (block) {
                     switch (block.componentName) {
                         case "user-stats":
-                            return this.service.getData("/json/clientes/p_molins/json/stats.json");
+                            return this.service.getData("/informe/clientes/p_molins/json/stats.json");
+                        case "community-network":
+                            return Rx_1.Observable.create(function (subscriber) {
+                                subscriber.next("/informe/clientes/p_molins/img/clusters.png");
+                                subscriber.complete();
+                            });
                         default:
-                            return this.service.getData("");
+                            console.error('BlockData couldn\'t identify the block named: ' + block.componentName);
+                            return Rx_1.Observable.create(function (subscriber) {
+                                subscriber.next("Error");
+                                subscriber.complete();
+                            });
                     }
                 };
                 BlockData = __decorate([

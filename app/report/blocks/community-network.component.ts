@@ -1,6 +1,6 @@
 import { JSONService } from "../services/json.service";
 import { Block } from './block';
-import { Component } from 'angular2/core';
+import { AfterViewInit, Component } from 'angular2/core';
 
 declare var $:any;
 const NUM_USERS = 15;
@@ -10,7 +10,7 @@ const NUM_USERS = 15;
     template: `
     <section class="col-md-6">
         <div class="panel panel-default">
-            <img id="grafoClusters" class="img-responsive" src=""/>
+            <img id="grafoClusters" class="img-responsive" src="{{ src }}"/>
             <p class="col-md-12 text-center">
                 <a class="como-funciona"
                         data-toggle="popover"
@@ -28,9 +28,23 @@ const NUM_USERS = 15;
     </section>
     `
 })
-export class CommunityNetworkComponent {
+export class CommunityNetworkComponent implements AfterViewInit {
+
+    public src: string;
+
     constructor() {
         $('.como-funciona').popover();
-        //$('grafo-clusters').
+
+    }
+
+    ngAfterViewInit() {
+        $('#grafoClusters').loupe({
+            width: 200,
+            height: 200,
+            loupe: 'lupa'
+        });
+    }
+    setData(data) {
+        this.src = data;
     }
 }
