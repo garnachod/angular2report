@@ -3,14 +3,14 @@ import { BlockFactory } from './blocks/block-factory';
 import { UserStatsComponent } from './blocks/user-stats.component';
 import { JSONService } from './services/json.service';
 import { Block } from './blocks/block';
+import { BlockData } from './services/block-data.service';
 
 @Component({
     selector: 'report',
     inputs: ['config'],
-    providers: [BlockFactory],
+    providers: [BlockFactory, BlockData],
     template: `
-    <div *ngFor="#block of blocks" id="{{ block.id }}">
-    </div>
+
     `
 })
 export class ReportComponent implements OnInit {
@@ -22,7 +22,8 @@ export class ReportComponent implements OnInit {
         private loader: DynamicComponentLoader,
         private injector: Injector,
         public elementRef:ElementRef,
-        private rbf: BlockFactory) {
+        private factory: BlockFactory,
+        private blockData: BlockData ) {
     }
 
     ngOnInit() {
@@ -31,12 +32,18 @@ export class ReportComponent implements OnInit {
             console.error('ReportComponent didn\'t get config input data');
         }
 
-        this.blocks = this.rbf.getBlocks(this.config);
+        this.blocks = this.factory.getBlocks(this.config);
 
         this.blocks.map(block => {
             this.loader.loadNextToLocation(UserStatsComponent, this.elementRef)
                 .then(component =>  {
-                    component.instance.setData('PROBANDO');
+                    if (this.blockData.getData) {
+
+                        this.blockData.getData(block)
+                            .subscribe(data => {
+                                component.instance.setData(data);
+                            });
+                    }
                 });
         });
     }

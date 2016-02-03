@@ -4,7 +4,8 @@ System.register([], function(exports_1) {
         setters:[],
         execute: function() {
             Block = (function () {
-                function Block(directive, id, name, language, interval) {
+                function Block(componentName, directive, id, name, language, interval) {
+                    this.componentName = componentName;
                     this.directive = directive;
                     this.id = id;
                     this.name = name;

@@ -1,4 +1,4 @@
-System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats.component'], function(exports_1) {
+System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats.component', './services/block-data.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, block_factory_1, user_stats_component_1;
+    var core_1, block_factory_1, user_stats_component_1, block_data_service_1;
     var ReportComponent;
     return {
         setters:[
@@ -20,25 +20,34 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
             },
             function (user_stats_component_1_1) {
                 user_stats_component_1 = user_stats_component_1_1;
+            },
+            function (block_data_service_1_1) {
+                block_data_service_1 = block_data_service_1_1;
             }],
         execute: function() {
             ReportComponent = (function () {
-                function ReportComponent(loader, injector, elementRef, rbf) {
+                function ReportComponent(loader, injector, elementRef, factory, blockData) {
                     this.loader = loader;
                     this.injector = injector;
                     this.elementRef = elementRef;
-                    this.rbf = rbf;
+                    this.factory = factory;
+                    this.blockData = blockData;
                 }
                 ReportComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     if (!this.config) {
                         console.error('ReportComponent didn\'t get config input data');
                     }
-                    this.blocks = this.rbf.getBlocks(this.config);
+                    this.blocks = this.factory.getBlocks(this.config);
                     this.blocks.map(function (block) {
                         _this.loader.loadNextToLocation(user_stats_component_1.UserStatsComponent, _this.elementRef)
                             .then(function (component) {
-                            component.instance.setData('PROBANDO');
+                            if (_this.blockData.getData) {
+                                _this.blockData.getData(block)
+                                    .subscribe(function (data) {
+                                    component.instance.setData(data);
+                                });
+                            }
                         });
                     });
                 };
@@ -46,10 +55,10 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
                     core_1.Component({
                         selector: 'report',
                         inputs: ['config'],
-                        providers: [block_factory_1.BlockFactory],
-                        template: "\n    <div *ngFor=\"#block of blocks\" id=\"{{ block.id }}\">\n    </div>\n    "
+                        providers: [block_factory_1.BlockFactory, block_data_service_1.BlockData],
+                        template: "\n\n    "
                     }), 
-                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, block_factory_1.BlockFactory])
+                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, block_factory_1.BlockFactory, block_data_service_1.BlockData])
                 ], ReportComponent);
                 return ReportComponent;
             })();

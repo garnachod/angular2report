@@ -30,7 +30,7 @@ System.register(['./block', './user-stats.component', 'rxjs/Rx'], function(expor
                         if (configData.components) {
                             configData.components.forEach(function (component) {
                                 var id = component + i;
-                                blocks.push(new block_1.Block(_this.directivesMap[component], id, name_1, language, range));
+                                blocks.push(new block_1.Block(component, _this.directivesMap[component], id, name_1, language, range));
                                 i++;
                             });
                         }

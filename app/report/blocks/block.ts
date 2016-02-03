@@ -1,6 +1,7 @@
 export class Block {
 
     constructor(
+        public componentName: string,
         public directive: any,
         public id: string,
         public name: string,

@@ -25,14 +25,14 @@ export class BlockFactory {
             if (configData.components) {
                 configData.components.forEach((component) => {
                     var id = component + i;
-                    blocks.push(new Block(this.directivesMap[component],id,name,language,range));
+                    blocks.push(new Block(component, this.directivesMap[component],id,name,language,range));
                     i++;
                 });
             }
         } else {
             console.error('BlockFactory didn\'t get config data')
         }
-        
+
         return blocks;
     }
 
