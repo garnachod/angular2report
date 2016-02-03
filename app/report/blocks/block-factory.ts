@@ -1,6 +1,8 @@
 import { Block } from './block';
 import { UserStatsComponent } from './user-stats.component';
 import { CommunityNetworkComponent } from './community-network.component';
+import { BetweennessNetworkComponent } from './betweenness-network.component';
+
 import 'rxjs/Rx';
 
 export class BlockFactory {
@@ -11,7 +13,7 @@ export class BlockFactory {
     constructor() {
         this.directivesMap['user-stats'] = UserStatsComponent;
         this.directivesMap['community-network'] = CommunityNetworkComponent;
-
+        this.directivesMap['betweenness-network'] = BetweennessNetworkComponent;
         //TODO: add more directives...
     }
 

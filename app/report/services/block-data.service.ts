@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/Rx';
 export class BlockData {
 
     constructor(@Inject(JSONService) private service: JSONService) {
-
     }
 
     getData(block: Block) {
@@ -20,6 +19,11 @@ export class BlockData {
                   subscriber.complete();
                 });
 
+            case "betweenness-network":
+                return Observable.create((subscriber) => {
+                    subscriber.next("/informe/clientes/p_molins/img/betweenness.png");
+                    subscriber.complete();
+                });
 
             default:
                 console.error('BlockData couldn\'t identify the block named: ' + block.componentName);

@@ -2,6 +2,7 @@ import { JSONService } from "../services/json.service";
 import { Block } from './block';
 import { DataComponent } from './data-component';
 import { Component } from 'angular2/core';
+import { GlobalColor } from '../services/global-color.service';
 
 declare var $:any;
 const NUM_USERS = 15;
@@ -66,7 +67,7 @@ export class UserStatsComponent extends DataComponent {
     private valoresPagerank = [];
     private valoresCloseness = [];
 
-    constructor() {
+    constructor(private globalColor: GlobalColor) {
         super();
         this.elementoTweets = $('#tweetsId');
         this.elementoRetweets = $('#retweetsId');

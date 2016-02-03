@@ -1,5 +1,5 @@
-System.register(['./block', './user-stats.component', './community-network.component', 'rxjs/Rx'], function(exports_1) {
-    var block_1, user_stats_component_1, community_network_component_1;
+System.register(['./block', './user-stats.component', './community-network.component', './betweenness-network.component', 'rxjs/Rx'], function(exports_1) {
+    var block_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1;
     var BlockFactory;
     return {
         setters:[
@@ -12,6 +12,9 @@ System.register(['./block', './user-stats.component', './community-network.compo
             function (community_network_component_1_1) {
                 community_network_component_1 = community_network_component_1_1;
             },
+            function (betweenness_network_component_1_1) {
+                betweenness_network_component_1 = betweenness_network_component_1_1;
+            },
             function (_1) {}],
         execute: function() {
             BlockFactory = (function () {
@@ -20,6 +23,7 @@ System.register(['./block', './user-stats.component', './community-network.compo
                     this.reportBlocks = new Array();
                     this.directivesMap['user-stats'] = user_stats_component_1.UserStatsComponent;
                     this.directivesMap['community-network'] = community_network_component_1.CommunityNetworkComponent;
+                    this.directivesMap['betweenness-network'] = betweenness_network_component_1.BetweennessNetworkComponent;
                     //TODO: add more directives...
                 }
                 BlockFactory.prototype.getBlocks = function (configData) {

@@ -1,4 +1,4 @@
-System.register(['./data-component', 'angular2/core'], function(exports_1) {
+System.register(['./data-component', 'angular2/core', '../services/global-color.service'], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -13,7 +13,7 @@ System.register(['./data-component', 'angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var data_component_1, core_1;
+    var data_component_1, core_1, global_color_service_1;
     var NUM_USERS, UserStatsComponent;
     return {
         setters:[
@@ -22,13 +22,17 @@ System.register(['./data-component', 'angular2/core'], function(exports_1) {
             },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (global_color_service_1_1) {
+                global_color_service_1 = global_color_service_1_1;
             }],
         execute: function() {
             NUM_USERS = 15;
             UserStatsComponent = (function (_super) {
                 __extends(UserStatsComponent, _super);
-                function UserStatsComponent() {
+                function UserStatsComponent(globalColor) {
                     _super.call(this);
+                    this.globalColor = globalColor;
                     this.valoresTweets = [];
                     this.valoresRetweets = [];
                     this.valoresPagerank = [];
@@ -162,7 +166,7 @@ System.register(['./data-component', 'angular2/core'], function(exports_1) {
                         selector: 'user-stats',
                         template: "\n    <section class=\"col-md-6\">\n        <div class=\"panel with-nav-tabs panel-default\">\n            <ul id=\"statTabs\" class=\"nav nav-tabs\">\n                <li class=\"active\"><a href=\"#tab1\" data-toggle=\"tab\">Tweets</a></li>\n                <li><a href=\"#tab2\" data-toggle=\"tab\">Retweets</a></li>\n                <li><a href=\"#tab3\" data-toggle=\"tab\">Relevancia</a></li>\n                <li><a href=\"#tab4\" data-toggle=\"tab\">Intermediaci\u00F3n</a></li>\n            </ul>\n            <div class=\"panel-body\">\n                <div class=\"tab-content row\">\n                    <div class=\"tab-pane fade in active col-md-12\" id=\"tab1\">\n                        <div id=\"tweetsId\"></div>\n                    </div>\n                    <div class=\"tab-pane fade col-md-12\" id=\"tab2\">\n                        <div id=\"retweetsId\"></div>\n                    </div>\n                    <div class=\"tab-pane fade col-md-12\" id=\"tab3\">\n                        <div id=\"pagerankId\"></div>\n                    </div>\n                    <div class=\"tab-pane fade col-md-12\" id=\"tab4\">\n                        <div id=\"closenessId\"></div>\n                    </div>\n                </div>\n            </div>\n\n            <p class=\"col-md-12 text-center\">\n                <a class=\"como-funciona\"\n                data-toggle=\"popover\"\n                data-content=\"Al pinchar en la pesta\u00F1a de cada m\u00E9trica\n                aparecen los 10 usuarios m\u00E1s valorados seg\u00FAn \u00E9sta. La\n                longitud de la barra representa el valor de la m\u00E9trica\n                en dicho usuario. Puedes acceder a cada uno de estos\n                perfiles pinchando sobre su nombre.\"\n                data-placement=\"bottom\"\n                data-original-title=\"M\u00E9tricas de Usuarios\"\n                href=\"javascript:void(0);\">\n                <span>M\u00E9tricas de Usuarios</span>\n                <small><i class=\"glyphicon glyphicon-info-sign\"></i></small>\n                </a>\n            </p>\n        </div>\n    </section>\n    "
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [global_color_service_1.GlobalColor])
                 ], UserStatsComponent);
                 return UserStatsComponent;
             })(data_component_1.DataComponent);
