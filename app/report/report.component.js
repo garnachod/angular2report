@@ -43,10 +43,14 @@ System.register(['angular2/core', './blocks/block-factory', './blocks/user-stats
                         _this.loader.loadNextToLocation(user_stats_component_1.UserStatsComponent, _this.elementRef)
                             .then(function (component) {
                             if (_this.blockData.getData) {
-                                _this.blockData.getData(block)
-                                    .subscribe(function (data) {
-                                    component.instance.setData(data);
-                                });
+                                try {
+                                    _this.blockData.getData(block)
+                                        .subscribe(function (data) {
+                                        component.instance.setData(data);
+                                    });
+                                }
+                                catch (e) {
+                                }
                             }
                         });
                     });

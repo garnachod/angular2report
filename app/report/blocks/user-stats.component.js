@@ -27,6 +27,7 @@ System.register(['angular2/core'], function(exports_1) {
                     this.elementoRetweets = $('#retweetsId');
                     this.elementoPagerank = $('#pagerankId');
                     this.elementoCloseness = $('#closenessId');
+                    $('.como-funciona').popover();
                 }
                 UserStatsComponent.prototype.setData = function (data) {
                     this.data = data;

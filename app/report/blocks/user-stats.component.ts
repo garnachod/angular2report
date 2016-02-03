@@ -1,7 +1,6 @@
 import { JSONService } from "../services/json.service";
 import { Block } from './block';
-import { Injector, DynamicComponentLoader,  Component, Inject, OnInit, provide, forwardRef } from 'angular2/core';
-import { ReportComponent } from '../report.component';
+import { Component } from 'angular2/core';
 
 declare var $:any;
 const NUM_USERS = 15;
@@ -73,6 +72,7 @@ export class UserStatsComponent {
         this.elementoRetweets = $('#retweetsId');
         this.elementoPagerank = $('#pagerankId');
         this.elementoCloseness = $('#closenessId');
+        $('.como-funciona').popover();
     }
 
     public setData(data) {

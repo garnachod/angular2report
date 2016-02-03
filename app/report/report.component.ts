@@ -24,28 +24,31 @@ export class ReportComponent implements OnInit {
         public elementRef:ElementRef,
         private factory: BlockFactory,
         private blockData: BlockData ) {
-    }
-
-    ngOnInit() {
-
-        if (!this.config) {
-            console.error('ReportComponent didn\'t get config input data');
         }
 
-        this.blocks = this.factory.getBlocks(this.config);
+        ngOnInit() {
 
-        this.blocks.map(block => {
-            this.loader.loadNextToLocation(UserStatsComponent, this.elementRef)
+            if (!this.config) {
+                console.error('ReportComponent didn\'t get config input data');
+            }
+
+            this.blocks = this.factory.getBlocks(this.config);
+
+            this.blocks.map(block => {
+                this.loader.loadNextToLocation(UserStatsComponent, this.elementRef)
                 .then(component =>  {
                     if (this.blockData.getData) {
-
-                        this.blockData.getData(block)
+                        try {
+                            this.blockData.getData(block)
                             .subscribe(data => {
                                 component.instance.setData(data);
                             });
+                        } catch (e) {
+
+                        }
                     }
                 });
-        });
-    }
+            });
+        }
 
-}
+    }
