@@ -43,6 +43,11 @@ System.register(['./json.service', 'angular2/core', 'rxjs/Rx'], function(exports
                                 subscriber.next("/informe/clientes/p_molins/img/betweenness.png");
                                 subscriber.complete();
                             });
+                        case "relevance-network":
+                            return Rx_1.Observable.create(function (subscriber) {
+                                subscriber.next("/informe/clientes/p_molins/img/pagerank.png");
+                                subscriber.complete();
+                            });
                         default:
                             console.error('BlockData couldn\'t identify the block named: ' + block.componentName);
                             return Rx_1.Observable.create(function (subscriber) {

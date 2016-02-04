@@ -25,6 +25,13 @@ export class BlockData {
                     subscriber.complete();
                 });
 
+            case "relevance-network":
+                    return Observable.create((subscriber) => {
+                        subscriber.next("/informe/clientes/p_molins/img/pagerank.png");
+                        subscriber.complete();
+                    });
+
+
             default:
                 console.error('BlockData couldn\'t identify the block named: ' + block.componentName);
                 return Observable.create((subscriber) => {

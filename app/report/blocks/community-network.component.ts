@@ -1,4 +1,3 @@
-import { JSONService } from "../services/json.service";
 import { Block } from './block';
 import { AfterViewInit, Component } from 'angular2/core';
 
