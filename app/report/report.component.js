@@ -1,5 +1,4 @@
 System.register(['angular2/core', './blocks/block-factory', './services/block-data.service'], function(exports_1) {
-    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,7 +62,7 @@ System.register(['angular2/core', './blocks/block-factory', './services/block-da
                     __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector, core_1.ElementRef, block_factory_1.BlockFactory, block_data_service_1.BlockData])
                 ], ReportComponent);
                 return ReportComponent;
-            }());
+            })();
             exports_1("ReportComponent", ReportComponent);
         }
     }

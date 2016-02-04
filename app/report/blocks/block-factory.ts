@@ -3,7 +3,7 @@ import { UserStatsComponent } from './user-stats.component';
 import { CommunityNetworkComponent } from './community-network.component';
 import { BetweennessNetworkComponent } from './betweenness-network.component';
 import { RelevanceNetworkComponent } from './relevance-network.component';
-import { ExtendedLDAvisComponent } from './ldavis.component';
+import { ExtendedLDAvisComponent } from './extended-ldavis.component';
 
 import 'rxjs/Rx';
 

@@ -18,28 +18,24 @@ export class BlockData {
 
             case "community-network":
                 return Observable.create((subscriber) => {
-                  subscriber.next("/informe/clientes/p_molins/img/clusters.png");
-                  subscriber.complete();
+                  subscriber.next("/informe/clientes/p_molins/img/clusters.png").complete();
                 });
 
             case "betweenness-network":
                 return Observable.create((subscriber) => {
-                    subscriber.next("/informe/clientes/p_molins/img/betweenness.png");
-                    subscriber.complete();
+                    subscriber.next("/informe/clientes/p_molins/img/betweenness.png").complete();
                 });
 
             case "relevance-network":
                     return Observable.create((subscriber) => {
-                        subscriber.next("/informe/clientes/p_molins/img/pagerank.png");
-                        subscriber.complete();
+                        subscriber.next("/informe/clientes/p_molins/img/pagerank.png").complete();
                     });
 
 
             default:
                 console.error('BlockData couldn\'t identify the block named: ' + block.componentName);
                 return Observable.create((subscriber) => {
-                    subscriber.next("Error");
-                    subscriber.complete();
+                    subscriber.next("Error").complete();
                 });
 
         }
