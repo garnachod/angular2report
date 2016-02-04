@@ -13,6 +13,9 @@ export class BlockData {
             case "user-stats":
                 return this.service.getData("/informe/clientes/p_molins/json/stats.json");
 
+            case "extended-ldavis":
+                    return this.service.getData("/informe/clientes/p_molins/json/terms.json");
+
             case "community-network":
                 return Observable.create((subscriber) => {
                   subscriber.next("/informe/clientes/p_molins/img/clusters.png");

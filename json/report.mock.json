@@ -2,5 +2,11 @@
     "name": "p_molins",
     "range": ["", ""],
     "language": "es",
-    "components": ["user-stats", "community-network", "betweenness-network", "relevance-network"]
+    "components": [
+        "user-stats",
+        "community-network",
+        "betweenness-network",
+        "relevance-network",
+        "extended-ldavis"
+    ]
 }

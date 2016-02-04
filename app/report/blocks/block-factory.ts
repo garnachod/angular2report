@@ -3,6 +3,7 @@ import { UserStatsComponent } from './user-stats.component';
 import { CommunityNetworkComponent } from './community-network.component';
 import { BetweennessNetworkComponent } from './betweenness-network.component';
 import { RelevanceNetworkComponent } from './relevance-network.component';
+import { ExtendedLDAvisComponent } from './ldavis.component';
 
 import 'rxjs/Rx';
 
@@ -16,6 +17,7 @@ export class BlockFactory {
         this.directivesMap['community-network'] = CommunityNetworkComponent;
         this.directivesMap['betweenness-network'] = BetweennessNetworkComponent;
         this.directivesMap['relevance-network'] = RelevanceNetworkComponent;
+        this.directivesMap['extended-ldavis'] = ExtendedLDAvisComponent;
 
         //TODO: add more directives...
     }

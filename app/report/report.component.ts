@@ -1,6 +1,5 @@
-import { provide, OnInit, Component, DynamicComponentLoader, Injector, Input, AfterViewInit, ElementRef} from 'angular2/core';
+import { OnInit, Component, DynamicComponentLoader, Injector, Input, AfterViewInit, ElementRef} from 'angular2/core';
 import { BlockFactory } from './blocks/block-factory';
-import { UserStatsComponent } from './blocks/user-stats.component';
 import { JSONService } from './services/json.service';
 import { Block } from './blocks/block';
 import { BlockData } from './services/block-data.service';
@@ -10,7 +9,7 @@ import { BlockData } from './services/block-data.service';
     inputs: ['config'],
     providers: [BlockFactory, BlockData],
     template: `
-    
+
     `
 })
 export class ReportComponent implements OnInit {

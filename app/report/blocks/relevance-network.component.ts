@@ -7,6 +7,7 @@ const NUM_USERS = 15;
 @Component({
     selector: 'relevance-network',
     template: `
+    <article id="graphs">
     <section class="col-md-6">
         <div class="panel panel-default">
             <img id="grafoRelevance" class="img-responsive" src="{{ src }}"/>
@@ -25,6 +26,7 @@ const NUM_USERS = 15;
             </p>
         </div>
     </section>
+    </article>
     `
 })
 export class RelevanceNetworkComponent implements AfterViewInit {

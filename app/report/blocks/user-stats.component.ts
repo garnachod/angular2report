@@ -1,4 +1,3 @@
-import { JSONService } from "../services/json.service";
 import { Block } from './block';
 import { DataComponent } from './data-component';
 import { Component } from 'angular2/core';
