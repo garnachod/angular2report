@@ -143,8 +143,8 @@ System.register(['./data-component', 'angular2/core', '../services/global-color.
                                 color: {
                                     linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
                                     stops: [
-                                        [0, 'rgba(204, 89, 205, 1)'],
-                                        [1, 'rgba(91, 104, 158, 0.7)']
+                                        [0, this.globalColor.secondaryColor],
+                                        [1, this.globalColor.primaryColor]
                                     ]
                                 }
                             },
