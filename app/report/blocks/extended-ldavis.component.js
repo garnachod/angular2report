@@ -1,4 +1,4 @@
-System.register(['./data-component', 'angular2/core', '../services/global-color.service'], function(exports_1) {
+System.register(["./hours-chart.component", "./user-bar-chart.component", './data-component', 'angular2/core', '../services/global-color.service'], function(exports_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -14,10 +14,19 @@ System.register(['./data-component', 'angular2/core', '../services/global-color.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var data_component_1, core_1, global_color_service_1;
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
+    var hours_chart_component_1, user_bar_chart_component_1, data_component_1, core_1, global_color_service_1;
     var ExtendedLDAvisComponent;
     return {
         setters:[
+            function (hours_chart_component_1_1) {
+                hours_chart_component_1 = hours_chart_component_1_1;
+            },
+            function (user_bar_chart_component_1_1) {
+                user_bar_chart_component_1 = user_bar_chart_component_1_1;
+            },
             function (data_component_1_1) {
                 data_component_1 = data_component_1_1;
             },
@@ -30,36 +39,23 @@ System.register(['./data-component', 'angular2/core', '../services/global-color.
         execute: function() {
             ExtendedLDAvisComponent = (function (_super) {
                 __extends(ExtendedLDAvisComponent, _super);
-                function ExtendedLDAvisComponent(globalColor) {
+                function ExtendedLDAvisComponent(globalColor, userBarChart, hoursChart) {
                     _super.call(this);
                     this.globalColor = globalColor;
+                    this.userBarChart = userBarChart;
+                    this.hoursChart = hoursChart;
                     $('.como-funciona').popover();
                 }
                 ExtendedLDAvisComponent.prototype.setData = function (data) {
-                    this.data = data;
-                    this.LDAvis($, '#lda', data, null, null, this.globalColor);
+                    this.userBarChart.setData(data.users);
+                    this.hoursChart.setData(data.hours);
+                    this.LDAvis($, '#lda', data, this.userBarChart, this.hoursChart, this.globalColor);
                 };
+                // ****************
+                // HERE BE DRAGONS!
+                // ****************
                 ExtendedLDAvisComponent.prototype.LDAvis = function ($, to_select, data, userBarChart, hoursChart, colors) {
-                    // circle guide inspired from
-                    // http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html?_r=0
-                    var circleGuide = function (rSize, size) {
-                        /*d3.select("#leftpanel").append("circle")
-                        .attr('class', "circleGuide" + size)
-                        .attr('r', rSize)
-                        .attr('cx', cx)
-                        .attr('cy', mdsheight + rSize)
-                        .style('fill', 'none')
-                        .style('stroke-dasharray', '2 2')
-                        .style('stroke', '#999');
-                        d3.select("#leftpanel").append("line")
-                        .attr('class', "lineGuide" + size)
-                        .attr("x1", cx)
-                        .attr("x2", cx2)
-                        .attr("y1", mdsheight + 2 * rSize)
-                        .attr("y2", mdsheight + 2 * rSize)
-                        .style("stroke", "gray")
-                        .style("opacity", 0.3);*/
-                    };
+                    var circleGuide = function (rSize, size) { };
                     // This section sets up the logic for event handling
                     var current_clicked = {
                         what: "nothing",
@@ -1214,10 +1210,14 @@ System.register(['./data-component', 'angular2/core', '../services/global-color.
                 };
                 ExtendedLDAvisComponent = __decorate([
                     core_1.Component({
+                        providers: [user_bar_chart_component_1.UserBarChartComponent, hours_chart_component_1.HoursChartComponent],
+                        directives: [user_bar_chart_component_1.UserBarChartComponent, hours_chart_component_1.HoursChartComponent],
                         selector: 'extended-ldavis',
-                        template: "\n\n            <article id=\"ldavis\" class=\" hidden-sm hidden-xs\">\n                <div class=\"col-md-12\">\n                    <div class=\"panel panel-default\">\n                        <div class=\"col-md-12\" id=\"lda\"></div>\n                        <p class=\"col-md-12 text-center\">\n                            <a class=\"como-funciona\"\n                               data-toggle=\"popover\"\n                               data-content=\"Los temas representan relaciones entre palabras.\n                               Al seleccionar un tema los paneles inferiores cambiar\u00E1n\n                               para representar la informaci\u00F3n relativa al mismo.\"\n                               data-placement=\"bottom\"\n                               data-original-title=\"Segmentaci\u00F3n en Tem\u00E1ticas del Contenido Publicado\"\n                               href=\"javascript:void(0);\">\n                                <span>Segmentaci\u00F3n en Tem\u00E1ticas del Contenido Publicado</span>\n                                <small><i class=\"glyphicon glyphicon-info-sign\"></i></small>\n                            </a>\n                        </p>\n                    </div>\n                </div>\n            </article>\n\n            <article id=\"charts\" class=\" hidden-sm hidden-xs\">\n                <section class=\"col-md-6\">\n                    <div class=\"panel panel-default\">\n                        <div id=\"userBarChart\"></div>\n                        <p class=\"col-md-12 text-center\">\n                            <a class=\"como-funciona\"\n                               data-toggle=\"popover\"\n                               data-content=\"Representa a los usuarios m\u00E1s influyentes en esa tem\u00E1tica.\n                               Se determina a partir de la estructura de la\n                               red y la informaci\u00F3n obtenida de los temas.\"\n                               data-placement=\"bottom\"\n                               data-original-title=\"Lista de usuarios relevantes\"\n                               href=\"javascript:void(0);\">\n                                <span>Lista de Usuarios Relevantes</span>\n                                <small><i class=\"glyphicon glyphicon-info-sign\"></i></small>\n                            </a>\n                        </p>\n                    </div>\n                </section>\n                <section class=\"col-md-6\">\n                    <div class=\"panel panel-default\">\n                        <div id=\"hoursChart\"></div>\n                        <p class=\"col-md-12 text-center\">\n                            <a class=\"como-funciona\"\n                               data-toggle=\"popover\"\n                               data-content=\"Es una representaci\u00F3n construida a partir de los\n                               tweets, retweets y favoritos que ha\n                               realizado la comunidad de seguidores de tu\n                               cuenta. La altura de la gr\u00E1fica es la\n                               cantidad de actividad media en ese momento.\"\n                               data-placement=\"bottom\"\n                               data-original-title=\"Gr\u00E1fica de actividad media\"\n                               href=\"javascript:void(0);\">\n                                <span>Gr\u00E1fica de Actividad Media</span>\n                                <small><i class=\"glyphicon glyphicon-info-sign\"></i></small>\n                            </a>\n                        </p>\n                    </div>\n                </section>\n            </article>\n    "
-                    }), 
-                    __metadata('design:paramtypes', [global_color_service_1.GlobalColor])
+                        template: "\n\n            <article id=\"ldavis\" class=\" hidden-sm hidden-xs\">\n                <div class=\"col-md-12\">\n                    <div class=\"panel panel-default\">\n                        <div class=\"col-md-12\" id=\"lda\"></div>\n                        <p class=\"col-md-12 text-center\">\n                            <a class=\"como-funciona\"\n                               data-toggle=\"popover\"\n                               data-content=\"Los temas representan relaciones entre palabras.\n                               Al seleccionar un tema los paneles inferiores cambiar\u00E1n\n                               para representar la informaci\u00F3n relativa al mismo.\"\n                               data-placement=\"bottom\"\n                               data-original-title=\"Segmentaci\u00F3n en Tem\u00E1ticas del Contenido Publicado\"\n                               href=\"javascript:void(0);\">\n                                <span>Segmentaci\u00F3n en Tem\u00E1ticas del Contenido Publicado</span>\n                                <small><i class=\"glyphicon glyphicon-info-sign\"></i></small>\n                            </a>\n                        </p>\n                    </div>\n                </div>\n            </article>\n\n            <article id=\"charts\" class=\" hidden-sm hidden-xs\">\n                <user-bar-chart #userBarChart></user-bar-chart>\n                <hours-chart #hoursChart></hours-chart>\n            </article>\n    "
+                    }),
+                    __param(1, core_1.ViewChild('userBarChart')),
+                    __param(2, core_1.ViewChild('hoursChart')), 
+                    __metadata('design:paramtypes', [global_color_service_1.GlobalColor, user_bar_chart_component_1.UserBarChartComponent, hours_chart_component_1.HoursChartComponent])
                 ], ExtendedLDAvisComponent);
                 return ExtendedLDAvisComponent;
             }(data_component_1.DataComponent));

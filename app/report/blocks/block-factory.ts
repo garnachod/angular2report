@@ -18,7 +18,7 @@ export class BlockFactory {
         this.directivesMap['betweenness-network'] = BetweennessNetworkComponent;
         this.directivesMap['relevance-network'] = RelevanceNetworkComponent;
         this.directivesMap['extended-ldavis'] = ExtendedLDAvisComponent;
-
+        
         //TODO: add more directives...
     }
 
