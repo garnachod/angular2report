@@ -1,6 +1,6 @@
-System.register(['./block', './user-stats.component', './community-network.component', './betweenness-network.component', './relevance-network.component', './extended-ldavis.component', 'rxjs/Rx'], function(exports_1) {
+System.register(['./block', './user-stats.component', './community-network.component', './betweenness-network.component', './relevance-network.component', './extended-ldavis.component', './ldavis.component', 'rxjs/Rx'], function(exports_1) {
     "use strict";
-    var block_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1, relevance_network_component_1, extended_ldavis_component_1;
+    var block_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1, relevance_network_component_1, extended_ldavis_component_1, ldavis_component_1;
     var BlockFactory;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['./block', './user-stats.component', './community-network.compo
             function (extended_ldavis_component_1_1) {
                 extended_ldavis_component_1 = extended_ldavis_component_1_1;
             },
+            function (ldavis_component_1_1) {
+                ldavis_component_1 = ldavis_component_1_1;
+            },
             function (_1) {}],
         execute: function() {
             BlockFactory = (function () {
@@ -32,6 +35,7 @@ System.register(['./block', './user-stats.component', './community-network.compo
                     this.directivesMap['community-network'] = community_network_component_1.CommunityNetworkComponent;
                     this.directivesMap['betweenness-network'] = betweenness_network_component_1.BetweennessNetworkComponent;
                     this.directivesMap['relevance-network'] = relevance_network_component_1.RelevanceNetworkComponent;
+                    this.directivesMap['ldavis'] = ldavis_component_1.LDAvisComponent;
                     this.directivesMap['extended-ldavis'] = extended_ldavis_component_1.ExtendedLDAvisComponent;
                     //TODO: add more directives...
                 }

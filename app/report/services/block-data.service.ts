@@ -13,6 +13,9 @@ export class BlockData {
             case "user-stats":
                 return this.service.getData("/informe/clientes/p_molins/json/stats.json");
 
+            case "ldavis":
+                    return this.service.getData("/informe/clientes/p_molins/json/terms.json");
+
             case "extended-ldavis":
                     return this.service.getData("/informe/clientes/p_molins/json/terms.json");
 
@@ -27,9 +30,9 @@ export class BlockData {
                 });
 
             case "relevance-network":
-                    return Observable.create((subscriber) => {
-                        subscriber.next("/informe/clientes/p_molins/img/pagerank.png").complete();
-                    });
+                return Observable.create((subscriber) => {
+                    subscriber.next("/informe/clientes/p_molins/img/pagerank.png").complete();
+                });
 
 
             default:
