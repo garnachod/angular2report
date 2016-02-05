@@ -14,10 +14,16 @@ export class BlockData {
                 return this.service.getData("/informe/clientes/p_molins/json/stats.json");
 
             case "ldavis":
-                    return this.service.getData("/informe/clientes/p_molins/json/terms.json");
+                return this.service.getData("/informe/clientes/p_molins/json/terms.json");
 
             case "extended-ldavis":
-                    return this.service.getData("/informe/clientes/p_molins/json/terms.json");
+                return this.service.getData("/informe/clientes/p_molins/json/terms.json");
+
+            case "team-sentiment":
+                return this.service.getData("/informe/clientes/p_molins/json/sentiments.json");
+
+            case "cloud":
+                return this.service.getData("/informe/clientes/p_molins/json/cloud.json");
 
             case "community-network":
                 return Observable.create((subscriber) => {

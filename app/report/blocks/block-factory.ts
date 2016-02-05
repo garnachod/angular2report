@@ -1,3 +1,4 @@
+import {CloudComponent} from "./cloud-component.component";
 import { Block } from './block';
 import { UserStatsComponent } from './user-stats.component';
 import { CommunityNetworkComponent } from './community-network.component';
@@ -5,6 +6,7 @@ import { BetweennessNetworkComponent } from './betweenness-network.component';
 import { RelevanceNetworkComponent } from './relevance-network.component';
 import { ExtendedLDAvisComponent } from './extended-ldavis.component';
 import { LDAvisComponent } from './ldavis.component';
+import { TeamSentimentComponent } from './team-sentiment.component';
 import 'rxjs/Rx';
 
 export class BlockFactory {
@@ -19,6 +21,8 @@ export class BlockFactory {
         this.directivesMap['relevance-network'] = RelevanceNetworkComponent;
         this.directivesMap['ldavis'] = LDAvisComponent;
         this.directivesMap['extended-ldavis'] = ExtendedLDAvisComponent;
+        this.directivesMap['team-sentiment'] = TeamSentimentComponent;
+        this.directivesMap['cloud'] = CloudComponent;
 
         //TODO: add more directives...
     }

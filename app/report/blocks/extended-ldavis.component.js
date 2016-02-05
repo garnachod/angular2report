@@ -1,5 +1,4 @@
 System.register(["./ldavis.component", "./hours-chart.component", "./user-bar-chart.component", 'angular2/core', '../services/global-color.service'], function(exports_1) {
-    "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -63,7 +62,7 @@ System.register(["./ldavis.component", "./hours-chart.component", "./user-bar-ch
                     __metadata('design:paramtypes', [global_color_service_1.GlobalColor, user_bar_chart_component_1.UserBarChartComponent, hours_chart_component_1.HoursChartComponent])
                 ], ExtendedLDAvisComponent);
                 return ExtendedLDAvisComponent;
-            }(ldavis_component_1.LDAvisComponent));
+            })(ldavis_component_1.LDAvisComponent);
             exports_1("ExtendedLDAvisComponent", ExtendedLDAvisComponent);
         }
     }

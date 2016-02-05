@@ -1,9 +1,12 @@
-System.register(['./block', './user-stats.component', './community-network.component', './betweenness-network.component', './relevance-network.component', './extended-ldavis.component', './ldavis.component', 'rxjs/Rx'], function(exports_1) {
+System.register(["./cloud-component.component", './block', './user-stats.component', './community-network.component', './betweenness-network.component', './relevance-network.component', './extended-ldavis.component', './ldavis.component', './team-sentiment.component', 'rxjs/Rx'], function(exports_1) {
     "use strict";
-    var block_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1, relevance_network_component_1, extended_ldavis_component_1, ldavis_component_1;
+    var cloud_component_component_1, block_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1, relevance_network_component_1, extended_ldavis_component_1, ldavis_component_1, team_sentiment_component_1;
     var BlockFactory;
     return {
         setters:[
+            function (cloud_component_component_1_1) {
+                cloud_component_component_1 = cloud_component_component_1_1;
+            },
             function (block_1_1) {
                 block_1 = block_1_1;
             },
@@ -25,6 +28,9 @@ System.register(['./block', './user-stats.component', './community-network.compo
             function (ldavis_component_1_1) {
                 ldavis_component_1 = ldavis_component_1_1;
             },
+            function (team_sentiment_component_1_1) {
+                team_sentiment_component_1 = team_sentiment_component_1_1;
+            },
             function (_1) {}],
         execute: function() {
             BlockFactory = (function () {
@@ -37,6 +43,8 @@ System.register(['./block', './user-stats.component', './community-network.compo
                     this.directivesMap['relevance-network'] = relevance_network_component_1.RelevanceNetworkComponent;
                     this.directivesMap['ldavis'] = ldavis_component_1.LDAvisComponent;
                     this.directivesMap['extended-ldavis'] = extended_ldavis_component_1.ExtendedLDAvisComponent;
+                    this.directivesMap['team-sentiment'] = team_sentiment_component_1.TeamSentimentComponent;
+                    this.directivesMap['cloud'] = cloud_component_component_1.CloudComponent;
                     //TODO: add more directives...
                 }
                 BlockFactory.prototype.getBlocks = function (configData) {

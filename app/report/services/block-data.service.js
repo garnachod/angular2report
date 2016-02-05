@@ -38,6 +38,10 @@ System.register(['./json.service', 'angular2/core', 'rxjs/Rx'], function(exports
                             return this.service.getData("/informe/clientes/p_molins/json/terms.json");
                         case "extended-ldavis":
                             return this.service.getData("/informe/clientes/p_molins/json/terms.json");
+                        case "team-sentiment":
+                            return this.service.getData("/informe/clientes/p_molins/json/sentiments.json");
+                        case "cloud":
+                            return this.service.getData("/informe/clientes/p_molins/json/cloud.json");
                         case "community-network":
                             return Rx_1.Observable.create(function (subscriber) {
                                 subscriber.next("/informe/clientes/p_molins/img/clusters.png").complete();
