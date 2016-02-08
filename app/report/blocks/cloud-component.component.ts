@@ -36,16 +36,14 @@ export class CloudComponent extends DataComponent {
     }
 
     private parseData(words) {
-
-             words.map(function (obj) {
-                 return {
-                     text: obj.text,
-                     weight: Math.log(obj.weight)
-                 };
-             });
-
-             $('#nube').jQCloud(words, {
-                 colors: ['#CC59CD', '#C35FCA','#B26CC5','#A973C2', '#A379C0', '#9C7FBF', '#9587BD', '#8F91BC', '#8C94BB']
-             });
+         words.map(function (obj) {
+             return {
+                 text: obj.text,
+                 weight: Math.log(obj.weight)
+             };
+         });
+         $('#nube').jQCloud(words, {
+             colors: ['#CC59CD', '#C35FCA','#B26CC5','#A973C2', '#A379C0', '#9C7FBF', '#9587BD', '#8F91BC', '#8C94BB']
+         });
     }
 }

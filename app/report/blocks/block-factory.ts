@@ -1,3 +1,4 @@
+import {BasicUserStatsComponent} from "./basic-user-stats.component";
 import {CloudComponent} from "./cloud-component.component";
 import { Block } from './block';
 import { UserStatsComponent } from './user-stats.component';
@@ -16,6 +17,7 @@ export class BlockFactory {
 
     constructor() {
         this.directivesMap['user-stats'] = UserStatsComponent;
+        this.directivesMap['basic-user-stats'] = BasicUserStatsComponent;
         this.directivesMap['community-network'] = CommunityNetworkComponent;
         this.directivesMap['betweenness-network'] = BetweennessNetworkComponent;
         this.directivesMap['relevance-network'] = RelevanceNetworkComponent;

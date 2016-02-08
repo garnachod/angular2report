@@ -4,6 +4,7 @@
     "language": "es",
     "components": [
         "user-stats",
+        "basic-user-stats",
         "community-network",
         "betweenness-network",
         "relevance-network",
@@ -11,4 +12,5 @@
         "cloud",
         "extended-ldavis"
     ]
+
 }

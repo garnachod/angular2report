@@ -13,6 +13,9 @@ export class BlockData {
             case "user-stats":
                 return this.service.getData("/informe/clientes/p_molins/json/stats.json");
 
+            case "basic-user-stats":
+                return this.service.getData("/informe/clientes/p_molins/json/stats.json");
+
             case "ldavis":
                 return this.service.getData("/informe/clientes/p_molins/json/terms.json");
 
