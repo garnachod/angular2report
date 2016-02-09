@@ -1,16 +1,16 @@
-System.register(["./basic-user-stats.component", "./cloud-component.component", './block', './user-stats.component', './community-network.component', './betweenness-network.component', './relevance-network.component', './extended-ldavis.component', './ldavis.component', './team-sentiment.component', './hashtag-activity.component', './team-activity.component', 'rxjs/Rx'], function(exports_1) {
-    var basic_user_stats_component_1, cloud_component_component_1, block_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1, relevance_network_component_1, extended_ldavis_component_1, ldavis_component_1, team_sentiment_component_1, hashtag_activity_component_1, team_activity_component_1;
+System.register(['./block', "./basic-user-stats.component", "./cloud-component.component", './user-stats.component', './community-network.component', './betweenness-network.component', './relevance-network.component', './extended-ldavis.component', './ldavis.component', './team-sentiment.component', './hashtag-activity.component', './team-activity.component', 'rxjs/Rx'], function(exports_1) {
+    var block_1, basic_user_stats_component_1, cloud_component_component_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1, relevance_network_component_1, extended_ldavis_component_1, ldavis_component_1, team_sentiment_component_1, hashtag_activity_component_1, team_activity_component_1;
     var BlockFactory;
     return {
         setters:[
+            function (block_1_1) {
+                block_1 = block_1_1;
+            },
             function (basic_user_stats_component_1_1) {
                 basic_user_stats_component_1 = basic_user_stats_component_1_1;
             },
             function (cloud_component_component_1_1) {
                 cloud_component_component_1 = cloud_component_component_1_1;
-            },
-            function (block_1_1) {
-                block_1 = block_1_1;
             },
             function (user_stats_component_1_1) {
                 user_stats_component_1 = user_stats_component_1_1;

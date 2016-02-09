@@ -12,17 +12,17 @@ const NUM_USERS = 15;
             <img id="grafoBetweenness" class="img-responsive" src="{{ src }}"/>
             <p class="col-md-12 text-center">
             <a class="como-funciona"
-                                  data-toggle="popover"
-                                  data-content="Ésta es una manera visual de ver la Intermediación
-                                  de cada usuario de tu Comunidad. Aparecen más grandes aquellos
-                                  usuarios que tienen un alto nivel de Intermediación y más pequeños
-                                  aquellos que lo tienen bajo."
-                                  data-placement="bottom"
-                                  data-original-title="Red de Intermediación"
-                                  href="javascript:void(0);">
-                                   <span>Red de Intermediación</span>
-                                   <small><i class="glyphicon glyphicon-info-sign"></i></small>
-                               </a>
+                  data-toggle="popover"
+                  data-content="Ésta es una manera visual de ver la Intermediación
+                  de cada usuario de tu Comunidad. Aparecen más grandes aquellos
+                  usuarios que tienen un alto nivel de Intermediación y más pequeños
+                  aquellos que lo tienen bajo."
+                  data-placement="bottom"
+                  data-original-title="Red de Intermediación"
+                  href="javascript:void(0);">
+                   <span>Red de Intermediación</span>
+                   <small><i class="glyphicon glyphicon-info-sign"></i></small>
+               </a>
             </p>
         </div>
     </section>
@@ -34,7 +34,6 @@ export class BetweennessNetworkComponent implements AfterViewInit {
 
     constructor() {
         $('.como-funciona').popover();
-
     }
 
     ngAfterViewInit() {

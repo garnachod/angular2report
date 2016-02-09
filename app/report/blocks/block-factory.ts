@@ -1,7 +1,7 @@
-import {BasicUserStatsComponent} from "./basic-user-stats.component";
-import {CloudComponent} from "./cloud-component.component";
-import { Block } from './block';
 
+import { Block } from './block';
+import { BasicUserStatsComponent } from "./basic-user-stats.component";
+import { CloudComponent } from "./cloud-component.component";
 import { UserStatsComponent } from './user-stats.component';
 import { CommunityNetworkComponent } from './community-network.component';
 import { BetweennessNetworkComponent } from './betweenness-network.component';

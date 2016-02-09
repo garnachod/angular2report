@@ -48,7 +48,6 @@ const NUM_USERS = 15;
 })
 export class BasicUserStatsComponent extends DataComponent {
 
-    private colors: any;
     private elementoTweets: string;
     private elementoRetweets: string;
     private file: string;

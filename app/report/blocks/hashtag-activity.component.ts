@@ -32,15 +32,15 @@ declare var document: any;
 })
 export class HashtagActivityComponent extends DataComponent {
 
-     private topic;
      private element;
      private values = [];
      private interval = 1;
-     private fechaInicio;
+     private initDate;
 
      constructor(private colors: GlobalColor) {
          super();
          this.element = $('#activityChart');
+         $('.como-funciona').popover();
      }
 
      public setData(data) {
@@ -48,7 +48,16 @@ export class HashtagActivityComponent extends DataComponent {
          this.parseData(data);
      }
 
-    private drawChart() {
+     private parseData(obj) {
+         let scrollPos;
+         this.initDate = obj.fechainicio;
+         this.values = obj.valores;
+         scrollPos = $(document).scrollTop(); // Prevent scrolling when redrawing chart!
+         this.drawChart();
+         $(document).scrollTop(scrollPos);
+     }
+
+     private drawChart() {
           this.element.highcharts({
               title: {
                   text: ''
@@ -106,24 +115,13 @@ export class HashtagActivityComponent extends DataComponent {
                       name: 'Actividad del Hashtag',
                       color: this.colors.primaryColor,
                       data: this.values,
-                      pointStart: Date.UTC(parseInt(this.fechaInicio.substring(0,4)),
-                                          parseInt(this.fechaInicio.substring(5,7)) - 1,
-                                          this.fechaInicio.substring(8,11)),
+                      pointStart: Date.UTC(parseInt(this.initDate.substring(0,4)),
+                                          parseInt(this.initDate.substring(5,7)) - 1,
+                                          this.initDate.substring(8,11)),
                       pointInterval: this.interval * 60 * 1000
                   }]
 
           });
       }
-
-      private parseData(obj) {
-          let scrollPos;
-          this.fechaInicio = obj.fechainicio;
-          this.values = obj.valores;
-          scrollPos = $(document).scrollTop(); // Prevent scrolling when redrawing chart!
-          this.drawChart();
-          $(document).scrollTop(scrollPos);
-      }
-
-
 
 }

@@ -36,6 +36,7 @@ export class UserBarChartComponent extends DataComponent {
 
     constructor(private colorConfig: GlobalColor) {
         super();
+        $('.como-funciona').popover();
     }
 
     setData(data) {

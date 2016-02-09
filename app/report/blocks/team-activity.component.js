@@ -1,5 +1,4 @@
 System.register(["../services/global-color.service", "angular2/core", "./data-component"], function(exports_1) {
-    "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -37,6 +36,7 @@ System.register(["../services/global-color.service", "angular2/core", "./data-co
                     this.teams = [];
                     this.interval = 1;
                     this.element = $('#teamActivityChart');
+                    $('.como-funciona').popover();
                 }
                 TeamActivityComponent.prototype.drawChart = function () {
                     this.element.highcharts({
@@ -124,7 +124,7 @@ System.register(["../services/global-color.service", "angular2/core", "./data-co
                     __metadata('design:paramtypes', [global_color_service_1.GlobalColor])
                 ], TeamActivityComponent);
                 return TeamActivityComponent;
-            }(data_component_1.DataComponent));
+            })(data_component_1.DataComponent);
             exports_1("TeamActivityComponent", TeamActivityComponent);
         }
     }

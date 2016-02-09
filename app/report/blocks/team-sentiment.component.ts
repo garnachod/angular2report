@@ -33,6 +33,7 @@ export class TeamSentimentComponent extends DataComponent {
     constructor() {
         super();
         this.elemento = $('#sentimentsChart');
+        $('.como-funciona').popover();
     }
 
     setData(data) {

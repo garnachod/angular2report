@@ -36,6 +36,7 @@ System.register(["../services/global-color.service", "angular2/core", "./data-co
                     this.values = [];
                     this.elemento = $('#hoursChart');
                     this.topic = -1;
+                    $('.como-funciona').popover();
                 }
                 HoursChartComponent.prototype.setData = function (data) {
                     this.data = data;

@@ -35,10 +35,19 @@ System.register(["../services/global-color.service", "angular2/core", "./data-co
                     this.values = [];
                     this.interval = 1;
                     this.element = $('#activityChart');
+                    $('.como-funciona').popover();
                 }
                 HashtagActivityComponent.prototype.setData = function (data) {
                     this.data = data;
                     this.parseData(data);
+                };
+                HashtagActivityComponent.prototype.parseData = function (obj) {
+                    var scrollPos;
+                    this.initDate = obj.fechainicio;
+                    this.values = obj.valores;
+                    scrollPos = $(document).scrollTop(); // Prevent scrolling when redrawing chart!
+                    this.drawChart();
+                    $(document).scrollTop(scrollPos);
                 };
                 HashtagActivityComponent.prototype.drawChart = function () {
                     this.element.highcharts({
@@ -98,18 +107,10 @@ System.register(["../services/global-color.service", "angular2/core", "./data-co
                                 name: 'Actividad del Hashtag',
                                 color: this.colors.primaryColor,
                                 data: this.values,
-                                pointStart: Date.UTC(parseInt(this.fechaInicio.substring(0, 4)), parseInt(this.fechaInicio.substring(5, 7)) - 1, this.fechaInicio.substring(8, 11)),
+                                pointStart: Date.UTC(parseInt(this.initDate.substring(0, 4)), parseInt(this.initDate.substring(5, 7)) - 1, this.initDate.substring(8, 11)),
                                 pointInterval: this.interval * 60 * 1000
                             }]
                     });
-                };
-                HashtagActivityComponent.prototype.parseData = function (obj) {
-                    var scrollPos;
-                    this.fechaInicio = obj.fechainicio;
-                    this.values = obj.valores;
-                    scrollPos = $(document).scrollTop(); // Prevent scrolling when redrawing chart!
-                    this.drawChart();
-                    $(document).scrollTop(scrollPos);
                 };
                 HashtagActivityComponent = __decorate([
                     core_1.Component({

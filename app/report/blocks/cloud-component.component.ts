@@ -29,6 +29,7 @@ export class CloudComponent extends DataComponent {
 
     constructor() {
         super();
+        $('.como-funciona').popover();
     }
 
     setData(data) {

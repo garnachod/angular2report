@@ -41,6 +41,7 @@ export class TeamActivityComponent extends DataComponent {
     constructor (private colors: GlobalColor) {
         super();
         this.element = $('#teamActivityChart');
+        $('.como-funciona').popover();
     }
 
     private drawChart() {

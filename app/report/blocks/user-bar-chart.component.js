@@ -34,6 +34,7 @@ System.register(["../services/global-color.service", "angular2/core", "./data-co
                     _super.call(this);
                     this.colorConfig = colorConfig;
                     this.usernameValues = [];
+                    $('.como-funciona').popover();
                 }
                 UserBarChartComponent.prototype.setData = function (data) {
                     this.data = data;

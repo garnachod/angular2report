@@ -40,6 +40,7 @@ export class HoursChartComponent extends DataComponent {
         super();
         this.elemento = $('#hoursChart');
         this.topic = -1;
+        $('.como-funciona').popover();
     }
 
     setData (data: any) {
@@ -62,7 +63,7 @@ export class HoursChartComponent extends DataComponent {
         this.topic = i;
         this.parseData(this.data);
     }
-    
+
     private drawChart() {
         if (this.topic === -1) {
             this.elemento.append('<section class="alert alert-info"> ↑ Seleccione un tema para obtener su gráfica de actividad media ↑</section>');

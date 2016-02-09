@@ -33,7 +33,6 @@ export class CommunityNetworkComponent implements AfterViewInit {
 
     constructor() {
         $('.como-funciona').popover();
-
     }
 
     ngAfterViewInit() {

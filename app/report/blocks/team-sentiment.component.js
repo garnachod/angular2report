@@ -31,6 +31,7 @@ System.register(["./data-component", 'angular2/core'], function(exports_1) {
                     this.equipos = [];
                     this.sentimientos = [];
                     this.elemento = $('#sentimentsChart');
+                    $('.como-funciona').popover();
                 }
                 TeamSentimentComponent.prototype.setData = function (data) {
                     for (var equipo in data) {

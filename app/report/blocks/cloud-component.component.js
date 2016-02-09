@@ -28,6 +28,7 @@ System.register(["./data-component", 'angular2/core'], function(exports_1) {
                 __extends(CloudComponent, _super);
                 function CloudComponent() {
                     _super.call(this);
+                    $('.como-funciona').popover();
                 }
                 CloudComponent.prototype.setData = function (data) {
                     this.parseData(data);
