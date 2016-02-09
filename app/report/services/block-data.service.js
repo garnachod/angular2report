@@ -35,6 +35,10 @@ System.register(['./json.service', 'angular2/core', 'rxjs/Rx'], function(exports
                             return this.service.getData("/informe/clientes/p_molins/json/stats.json");
                         case "basic-user-stats":
                             return this.service.getData("/informe/clientes/p_molins/json/stats.json");
+                        case "hashtag-activity":
+                            return this.service.getData("/informe/clientes/p_molins/json/activity.json");
+                        case "team-activity":
+                            return this.service.getData("/informe/clientes/p_molins/json/teams.json");
                         case "ldavis":
                             return this.service.getData("/informe/clientes/p_molins/json/terms.json");
                         case "extended-ldavis":

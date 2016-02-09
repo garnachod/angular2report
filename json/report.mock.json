@@ -10,7 +10,9 @@
         "relevance-network",
         "team-sentiment",
         "cloud",
-        "extended-ldavis"
+        "extended-ldavis",
+        "hashtag-activity",
+        "team-activity"
     ]
 
 }

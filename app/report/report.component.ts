@@ -43,7 +43,6 @@ export class ReportComponent implements OnInit {
                                 component.instance.setData(data);
                             });
                         } catch (e) {
-
                         }
                     }
                 });

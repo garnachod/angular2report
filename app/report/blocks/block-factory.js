@@ -1,5 +1,5 @@
-System.register(["./basic-user-stats.component", "./cloud-component.component", './block', './user-stats.component', './community-network.component', './betweenness-network.component', './relevance-network.component', './extended-ldavis.component', './ldavis.component', './team-sentiment.component', 'rxjs/Rx'], function(exports_1) {
-    var basic_user_stats_component_1, cloud_component_component_1, block_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1, relevance_network_component_1, extended_ldavis_component_1, ldavis_component_1, team_sentiment_component_1;
+System.register(["./basic-user-stats.component", "./cloud-component.component", './block', './user-stats.component', './community-network.component', './betweenness-network.component', './relevance-network.component', './extended-ldavis.component', './ldavis.component', './team-sentiment.component', './hashtag-activity.component', './team-activity.component', 'rxjs/Rx'], function(exports_1) {
+    var basic_user_stats_component_1, cloud_component_component_1, block_1, user_stats_component_1, community_network_component_1, betweenness_network_component_1, relevance_network_component_1, extended_ldavis_component_1, ldavis_component_1, team_sentiment_component_1, hashtag_activity_component_1, team_activity_component_1;
     var BlockFactory;
     return {
         setters:[
@@ -33,6 +33,12 @@ System.register(["./basic-user-stats.component", "./cloud-component.component", 
             function (team_sentiment_component_1_1) {
                 team_sentiment_component_1 = team_sentiment_component_1_1;
             },
+            function (hashtag_activity_component_1_1) {
+                hashtag_activity_component_1 = hashtag_activity_component_1_1;
+            },
+            function (team_activity_component_1_1) {
+                team_activity_component_1 = team_activity_component_1_1;
+            },
             function (_1) {}],
         execute: function() {
             BlockFactory = (function () {
@@ -41,6 +47,8 @@ System.register(["./basic-user-stats.component", "./cloud-component.component", 
                     this.reportBlocks = new Array();
                     this.directivesMap['user-stats'] = user_stats_component_1.UserStatsComponent;
                     this.directivesMap['basic-user-stats'] = basic_user_stats_component_1.BasicUserStatsComponent;
+                    this.directivesMap['hashtag-activity'] = hashtag_activity_component_1.HashtagActivityComponent;
+                    this.directivesMap['team-activity'] = team_activity_component_1.TeamActivityComponent;
                     this.directivesMap['community-network'] = community_network_component_1.CommunityNetworkComponent;
                     this.directivesMap['betweenness-network'] = betweenness_network_component_1.BetweennessNetworkComponent;
                     this.directivesMap['relevance-network'] = relevance_network_component_1.RelevanceNetworkComponent;

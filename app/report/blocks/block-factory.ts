@@ -1,6 +1,7 @@
 import {BasicUserStatsComponent} from "./basic-user-stats.component";
 import {CloudComponent} from "./cloud-component.component";
 import { Block } from './block';
+
 import { UserStatsComponent } from './user-stats.component';
 import { CommunityNetworkComponent } from './community-network.component';
 import { BetweennessNetworkComponent } from './betweenness-network.component';
@@ -8,6 +9,9 @@ import { RelevanceNetworkComponent } from './relevance-network.component';
 import { ExtendedLDAvisComponent } from './extended-ldavis.component';
 import { LDAvisComponent } from './ldavis.component';
 import { TeamSentimentComponent } from './team-sentiment.component';
+import { HashtagActivityComponent } from './hashtag-activity.component';
+import { TeamActivityComponent } from './team-activity.component';
+
 import 'rxjs/Rx';
 
 export class BlockFactory {
@@ -18,9 +22,13 @@ export class BlockFactory {
     constructor() {
         this.directivesMap['user-stats'] = UserStatsComponent;
         this.directivesMap['basic-user-stats'] = BasicUserStatsComponent;
+        this.directivesMap['hashtag-activity'] = HashtagActivityComponent;
+        this.directivesMap['team-activity'] = TeamActivityComponent;
+
         this.directivesMap['community-network'] = CommunityNetworkComponent;
         this.directivesMap['betweenness-network'] = BetweennessNetworkComponent;
         this.directivesMap['relevance-network'] = RelevanceNetworkComponent;
+
         this.directivesMap['ldavis'] = LDAvisComponent;
         this.directivesMap['extended-ldavis'] = ExtendedLDAvisComponent;
         this.directivesMap['team-sentiment'] = TeamSentimentComponent;

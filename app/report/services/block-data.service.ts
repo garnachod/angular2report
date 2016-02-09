@@ -10,11 +10,18 @@ export class BlockData {
     getData(block: Block) {
 
         switch(block.componentName) {
+
             case "user-stats":
                 return this.service.getData("/informe/clientes/p_molins/json/stats.json");
 
             case "basic-user-stats":
                 return this.service.getData("/informe/clientes/p_molins/json/stats.json");
+
+            case "hashtag-activity":
+                return this.service.getData("/informe/clientes/p_molins/json/activity.json");
+
+            case "team-activity":
+                return this.service.getData("/informe/clientes/p_molins/json/teams.json");
 
             case "ldavis":
                 return this.service.getData("/informe/clientes/p_molins/json/terms.json");
@@ -42,7 +49,6 @@ export class BlockData {
                 return Observable.create((subscriber) => {
                     subscriber.next("/informe/clientes/p_molins/img/pagerank.png").complete();
                 });
-
 
             default:
                 console.error('BlockData couldn\'t identify the block named: ' + block.componentName);
