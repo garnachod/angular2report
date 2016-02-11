@@ -12,46 +12,46 @@ export class BlockData {
         switch(block.componentName) {
 
             case "user-stats":
-                return this.service.getData("/informe/clientes/p_molins/json/stats.json");
+                return this.service.getData("/informe/clientes/p_molins/2016/03/json/stats.json");
 
             case "basic-user-stats":
-                return this.service.getData("/informe/clientes/p_molins/json/stats.json");
+                return this.service.getData("/informe/clientes/p_molins/2016/03/json/stats.json");
 
             case "hashtag-activity":
-                return this.service.getData("/informe/clientes/p_molins/json/activity.json");
+                return this.service.getData("/informe/clientes/p_molins/2016/03/json/activity.json");
 
             case "team-activity":
-                return this.service.getData("/informe/clientes/p_molins/json/teams.json");
+                return this.service.getData("/informe/clientes/p_molins/2016/03/json/teams.json");
 
             case "ldavis":
-                return this.service.getData("/informe/clientes/p_molins/json/terms.json");
+                return this.service.getData("/informe/clientes/p_molins/2016/03/json/terms.json");
 
             case "extended-ldavis":
-                return this.service.getData("/informe/clientes/p_molins/json/terms.json");
+                return this.service.getData("/informe/clientes/p_molins/2016/03/json/terms.json");
 
             case "team-sentiment":
-                return this.service.getData("/informe/clientes/p_molins/json/sentiments.json");
+                return this.service.getData("/informe/clientes/p_molins/2016/03/json/sentiments.json");
 
             case "cloud":
-                return this.service.getData("/informe/clientes/p_molins/json/cloud.json");
+                return this.service.getData("/informe/clientes/p_molins/2016/03/json/cloud.json");
 
             case "community-network":
                 return Observable.create((subscriber) => {
-                  subscriber.next("/informe/clientes/p_molins/img/clusters.png").complete();
+                  subscriber.next("/informe/clientes/p_molins/2016/03/img/clusters.png").complete();
                 });
 
             case "betweenness-network":
                 return Observable.create((subscriber) => {
-                    subscriber.next("/informe/clientes/p_molins/img/betweenness.png").complete();
+                    subscriber.next("/informe/clientes/p_molins/2016/03/img/betweenness.png").complete();
                 });
 
             case "relevance-network":
                 return Observable.create((subscriber) => {
-                    subscriber.next("/informe/clientes/p_molins/img/pagerank.png").complete();
+                    subscriber.next("/informe/clientes/p_molins/2016/03/img/pagerank.png").complete();
                 });
 
             default:
-                console.error('BlockData couldn\'t identify the block named: ' + block.componentName);
+                console.error('BlockData service couldn\'t identify the block named: ' + block.componentName);
                 return Observable.create((subscriber) => {
                     subscriber.next("Error").complete();
                 });

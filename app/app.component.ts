@@ -31,7 +31,7 @@ export class AppComponent implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.service.getData('/json/report.mock.json').subscribe(data => {
+        this.service.getData('/informe/clientes/p_molins/2016/03/config.json').subscribe(data => {
             this.reportConfig = data;
         });
     }

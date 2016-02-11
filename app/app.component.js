@@ -28,7 +28,7 @@ System.register(["./report/services/json.service", 'angular2/core', './report/re
                 }
                 AppComponent.prototype.ngAfterViewInit = function () {
                     var _this = this;
-                    this.service.getData('/json/report.mock.json').subscribe(function (data) {
+                    this.service.getData('/informe/clientes/p_molins/2016/03/config.json').subscribe(function (data) {
                         _this.reportConfig = data;
                     });
                 };
