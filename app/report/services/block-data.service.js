@@ -32,7 +32,7 @@ System.register(['./json.service', 'angular2/core', 'rxjs/Rx'], function(exports
                 BlockData.prototype.getData = function (block) {
                     switch (block.componentName) {
                         case "user-stats":
-                            return this.service.getData("/informe/clientes/p_molins/2016/03/json/stats.json");
+                            return this.service.getData("/informe/clientes/" + block.name + "/" + block.year + "/" + block.month + "/json/stats.json");
                         case "basic-user-stats":
                             return this.service.getData("/informe/clientes/p_molins/2016/03/json/stats.json");
                         case "hashtag-activity":

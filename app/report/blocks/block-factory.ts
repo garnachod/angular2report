@@ -44,13 +44,12 @@ export class BlockFactory {
         if (configData){
             let name = configData.name;
             let language = configData.language;
-            let range = configData.range;
-            let service = null;
+            let year = configData.year;
+            let month = configData.month;
             let i = 0;
             if (configData.components) {
                 configData.components.forEach((component) => {
-                    var id = component + i;
-                    blocks.push(new Block(component, this.directivesMap[component],id,name,language,range));
+                    blocks.push(new Block(component, this.directivesMap[component],name ,language, year, month));
                     i++;
                 });
             }

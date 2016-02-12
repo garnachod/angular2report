@@ -4,13 +4,13 @@ System.register([], function(exports_1) {
         setters:[],
         execute: function() {
             Block = (function () {
-                function Block(componentName, directive, id, name, language, interval) {
+                function Block(componentName, directive, name, language, year, month) {
                     this.componentName = componentName;
                     this.directive = directive;
-                    this.id = id;
                     this.name = name;
                     this.language = language;
-                    this.interval = interval;
+                    this.year = year;
+                    this.month = month;
                 }
                 return Block;
             })();

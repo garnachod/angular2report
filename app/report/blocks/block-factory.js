@@ -64,13 +64,12 @@ System.register(['./block', "./basic-user-stats.component", "./cloud-component.c
                     if (configData) {
                         var name_1 = configData.name;
                         var language = configData.language;
-                        var range = configData.range;
-                        var service = null;
+                        var year = configData.year;
+                        var month = configData.month;
                         var i = 0;
                         if (configData.components) {
                             configData.components.forEach(function (component) {
-                                var id = component + i;
-                                blocks.push(new block_1.Block(component, _this.directivesMap[component], id, name_1, language, range));
+                                blocks.push(new block_1.Block(component, _this.directivesMap[component], name_1, language, year, month));
                                 i++;
                             });
                         }
