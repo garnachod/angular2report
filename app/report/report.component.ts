@@ -1,3 +1,4 @@
+import { UserReportComponent } from "./user-report.component";
 import { OnInit, Component, DynamicComponentLoader, Injector, Input, AfterViewInit, ElementRef} from 'angular2/core';
 import { BlockFactory } from './blocks/block-factory';
 import { JSONService } from './services/json.service';
@@ -6,7 +7,7 @@ import { BlockData } from './services/block-data.service';
 
 @Component({
     selector: 'report',
-    inputs: ['config'],
+    inputs: ['config', ],
     providers: [BlockFactory, BlockData],
     template: `
 

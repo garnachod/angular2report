@@ -9,45 +9,47 @@ export class BlockData {
 
     getData(block: Block) {
 
+        let userFolder = "/informe/clientes/" + block.name + "/" + block.year +  "/" + block.month;
+
         switch(block.componentName) {
 
             case "user-stats":
-                return this.service.getData("/informe/clientes/" + block.name + "/" + block.year +  "/" + block.month + "/json/stats.json");
+                return this.service.getData(userFolder + "/json/stats.json");
 
             case "basic-user-stats":
-                return this.service.getData("/informe/clientes/p_molins/2016/03/json/stats.json");
+                return this.service.getData(userFolder + "/json/stats.json");
 
             case "hashtag-activity":
-                return this.service.getData("/informe/clientes/p_molins/2016/03/json/activity.json");
+                return this.service.getData(userFolder + "/json/activity.json");
 
             case "team-activity":
-                return this.service.getData("/informe/clientes/p_molins/2016/03/json/teams.json");
+                return this.service.getData(userFolder + "/json/teams.json");
 
             case "ldavis":
-                return this.service.getData("/informe/clientes/p_molins/2016/03/json/terms.json");
+                return this.service.getData(userFolder + "/json/terms.json");
 
             case "extended-ldavis":
-                return this.service.getData("/informe/clientes/p_molins/2016/03/json/terms.json");
+                return this.service.getData(userFolder + "/json/terms.json");
 
             case "team-sentiment":
-                return this.service.getData("/informe/clientes/p_molins/2016/03/json/sentiments.json");
+                return this.service.getData(userFolder + "/json/sentiments.json");
 
             case "cloud":
-                return this.service.getData("/informe/clientes/p_molins/2016/03/json/cloud.json");
+                return this.service.getData(userFolder + "/json/cloud.json");
 
             case "community-network":
                 return Observable.create((subscriber) => {
-                  subscriber.next("/informe/clientes/p_molins/2016/03/img/clusters.png").complete();
+                  subscriber.next(userFolder + "/img/clusters.png").complete();
                 });
 
             case "betweenness-network":
                 return Observable.create((subscriber) => {
-                    subscriber.next("/informe/clientes/p_molins/2016/03/img/betweenness.png").complete();
+                    subscriber.next(userFolder + "/img/betweenness.png").complete();
                 });
 
             case "relevance-network":
                 return Observable.create((subscriber) => {
-                    subscriber.next("/informe/clientes/p_molins/2016/03/img/pagerank.png").complete();
+                    subscriber.next(userFolder + "/img/pagerank.png").complete();
                 });
 
             default:

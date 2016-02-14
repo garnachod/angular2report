@@ -5,8 +5,8 @@ export class Block {
         public directive: any,
         public name: string,
         public language: string,
-        public year: number,
-        public month: number) {
+        public year: string,
+        public month: string) {
     }
 
 }

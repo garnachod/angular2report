@@ -55,7 +55,7 @@ System.register(['angular2/core', './blocks/block-factory', './services/block-da
                 ReportComponent = __decorate([
                     core_1.Component({
                         selector: 'report',
-                        inputs: ['config'],
+                        inputs: ['config',],
                         providers: [block_factory_1.BlockFactory, block_data_service_1.BlockData],
                         template: "\n\n    "
                     }), 
